@@ -45,7 +45,7 @@
   /**
    * The Report model module.
    * @module models/Report
-   * @version 1.0.0
+   * @version 1.0.1
    */
 
   /**
@@ -101,13 +101,13 @@
         obj['variant'] = ApiClient.convertToType(data['variant'], 'String');
       }
       if (data.hasOwnProperty('options')) {
-        obj['options'] = ApiClient.convertToType(data['options'], {'String': 'String'});
+        obj['options'] = ApiClient.convertToType(data['options'], Object);
       }
-      if (data.hasOwnProperty('breakdowns')) {
-        obj['breakdowns'] = ApiClient.convertToType(data['breakdowns'], {'String': 'String'});
+      if (data.hasOwnProperty('breakdown')) {
+        obj['breakdown'] = ApiClient.convertToType(data['breakdown'], Object);
       }
       if (data.hasOwnProperty('properties')) {
-        obj['properties'] = ApiClient.convertToType(data['properties'], {'String': 'String'});
+        obj['properties'] = ApiClient.convertToType(data['properties'], Object);
       }
     }
     return obj;
@@ -150,17 +150,17 @@
   exports.prototype['variant'] = undefined;
   /**
    * Report options. Some reports e.g. criminal_history expose additional options.
-   * @member {Object.<String, String>} options
+   * @member {Object} options
    */
   exports.prototype['options'] = undefined;
   /**
    * The details of the report. This is specific to each type of report.
-   * @member {Object.<String, String>} breakdowns
+   * @member {Object} breakdown
    */
-  exports.prototype['breakdowns'] = undefined;
+  exports.prototype['breakdown'] = undefined;
   /**
    * The properties associated with the report, if any.
-   * @member {Object.<String, String>} properties
+   * @member {Object} properties
    */
   exports.prototype['properties'] = undefined;
 

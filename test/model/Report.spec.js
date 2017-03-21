@@ -113,8 +113,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property breakdowns (base name: "breakdowns")', function() {
-      // uncomment below and update the code to test the property breakdowns
+    it('should have the property breakdown (base name: "breakdown")', function() {
+      // uncomment below and update the code to test the property breakdown
       //var instane = new Onfido.Report();
       //expect(instance).to.be();
     });
