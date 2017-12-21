@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Onfido.ReportType();
+    instance = new Onfido.GenericAddressesList();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,34 +58,16 @@
       object[property] = value;
   }
 
-  describe('ReportType', function() {
-    it('should create an instance of ReportType', function() {
-      // uncomment below and update the code to test ReportType
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be.a(Onfido.ReportType);
+  describe('GenericAddressesList', function() {
+    it('should create an instance of GenericAddressesList', function() {
+      // uncomment below and update the code to test GenericAddressesList
+      //var instane = new Onfido.GenericAddressesList();
+      //expect(instance).to.be.a(Onfido.GenericAddressesList);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property variant (base name: "variant")', function() {
-      // uncomment below and update the code to test the property variant
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property options (base name: "options")', function() {
-      // uncomment below and update the code to test the property options
-      //var instane = new Onfido.ReportType();
+    it('should have the property addresses (base name: "addresses")', function() {
+      // uncomment below and update the code to test the property addresses
+      //var instane = new Onfido.GenericAddressesList();
       //expect(instance).to.be();
     });
 

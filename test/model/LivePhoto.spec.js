@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Onfido.ReportType();
+    instance = new Onfido.LivePhoto();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,34 +58,58 @@
       object[property] = value;
   }
 
-  describe('ReportType', function() {
-    it('should create an instance of ReportType', function() {
-      // uncomment below and update the code to test ReportType
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be.a(Onfido.ReportType);
+  describe('LivePhoto', function() {
+    it('should create an instance of LivePhoto', function() {
+      // uncomment below and update the code to test LivePhoto
+      //var instane = new Onfido.LivePhoto();
+      //expect(instance).to.be.a(Onfido.LivePhoto);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new Onfido.ReportType();
+      //var instane = new Onfido.LivePhoto();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new Onfido.ReportType();
+    it('should have the property createdAt (base name: "created_at")', function() {
+      // uncomment below and update the code to test the property createdAt
+      //var instane = new Onfido.LivePhoto();
       //expect(instance).to.be();
     });
 
-    it('should have the property variant (base name: "variant")', function() {
-      // uncomment below and update the code to test the property variant
-      //var instane = new Onfido.ReportType();
+    it('should have the property applicantId (base name: "applicant_id")', function() {
+      // uncomment below and update the code to test the property applicantId
+      //var instane = new Onfido.LivePhoto();
       //expect(instance).to.be();
     });
 
-    it('should have the property options (base name: "options")', function() {
-      // uncomment below and update the code to test the property options
-      //var instane = new Onfido.ReportType();
+    it('should have the property href (base name: "href")', function() {
+      // uncomment below and update the code to test the property href
+      //var instane = new Onfido.LivePhoto();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property downloadHref (base name: "download_href")', function() {
+      // uncomment below and update the code to test the property downloadHref
+      //var instane = new Onfido.LivePhoto();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fileName (base name: "file_name")', function() {
+      // uncomment below and update the code to test the property fileName
+      //var instane = new Onfido.LivePhoto();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fileSize (base name: "file_size")', function() {
+      // uncomment below and update the code to test the property fileSize
+      //var instane = new Onfido.LivePhoto();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property fileType (base name: "file_type")', function() {
+      // uncomment below and update the code to test the property fileType
+      //var instane = new Onfido.LivePhoto();
       //expect(instance).to.be();
     });
 

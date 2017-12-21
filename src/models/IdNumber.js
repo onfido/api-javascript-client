@@ -1,6 +1,6 @@
 /**
  * Onfido API
- * The Onfido API is used to submit background checking requests
+ * The Onfido API is used to submit check requests.
  *
  * OpenAPI spec version: 2.0.0
  * 
@@ -45,7 +45,7 @@
   /**
    * The IdNumber model module.
    * @module models/IdNumber
-   * @version 1.0.1
+   * @version 1.1.0
    */
 
   /**

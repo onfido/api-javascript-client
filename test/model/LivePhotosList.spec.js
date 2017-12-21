@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Onfido.ReportType();
+    instance = new Onfido.LivePhotosList();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,34 +58,16 @@
       object[property] = value;
   }
 
-  describe('ReportType', function() {
-    it('should create an instance of ReportType', function() {
-      // uncomment below and update the code to test ReportType
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be.a(Onfido.ReportType);
+  describe('LivePhotosList', function() {
+    it('should create an instance of LivePhotosList', function() {
+      // uncomment below and update the code to test LivePhotosList
+      //var instane = new Onfido.LivePhotosList();
+      //expect(instance).to.be.a(Onfido.LivePhotosList);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property variant (base name: "variant")', function() {
-      // uncomment below and update the code to test the property variant
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property options (base name: "options")', function() {
-      // uncomment below and update the code to test the property options
-      //var instane = new Onfido.ReportType();
+    it('should have the property livePhotos (base name: "live_photos")', function() {
+      // uncomment below and update the code to test the property livePhotos
+      //var instane = new Onfido.LivePhotosList();
       //expect(instance).to.be();
     });
 

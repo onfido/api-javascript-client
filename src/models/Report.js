@@ -1,6 +1,6 @@
 /**
  * Onfido API
- * The Onfido API is used to submit background checking requests
+ * The Onfido API is used to submit check requests.
  *
  * OpenAPI spec version: 2.0.0
  * 
@@ -45,7 +45,7 @@
   /**
    * The Report model module.
    * @module models/Report
-   * @version 1.0.1
+   * @version 1.1.0
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -96,6 +97,9 @@
       }
       if (data.hasOwnProperty('result')) {
         obj['result'] = ApiClient.convertToType(data['result'], 'String');
+      }
+      if (data.hasOwnProperty('sub_result')) {
+        obj['sub_result'] = ApiClient.convertToType(data['sub_result'], 'String');
       }
       if (data.hasOwnProperty('variant')) {
         obj['variant'] = ApiClient.convertToType(data['variant'], 'String');
@@ -143,6 +147,11 @@
    * @member {String} result
    */
   exports.prototype['result'] = undefined;
+  /**
+   * The sub_result of the report. It gives a more detailed result for document reports only, and will be null otherwise.
+   * @member {String} sub_result
+   */
+  exports.prototype['sub_result'] = undefined;
   /**
    * Report variant string identifier. Some reports e.g. criminal_history have sub-types, which are identified by this field.
    * @member {String} variant

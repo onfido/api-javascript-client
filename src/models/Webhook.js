@@ -34,7 +34,7 @@
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.Error = factory(root.Onfido.ApiClient);
+    root.Onfido.Webhook = factory(root.Onfido.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The Error model module.
-   * @module models/Error
+   * The Webhook model module.
+   * @module models/Webhook
    * @version 1.1.0
    */
 
   /**
-   * Constructs a new <code>Error</code>.
-   * @alias module:models/Error
+   * Constructs a new <code>Webhook</code>.
+   * @alias module:models/Webhook
    * @class
    */
   var exports = function() {
@@ -60,14 +60,17 @@
 
 
 
+
+
+
   };
 
   /**
-   * Constructs a <code>Error</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Webhook</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:models/Error} obj Optional instance to populate.
-   * @return {module:models/Error} The populated <code>Error</code> instance.
+   * @param {module:models/Webhook} obj Optional instance to populate.
+   * @return {module:models/Webhook} The populated <code>Webhook</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -76,35 +79,63 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('type')) {
-        obj['type'] = ApiClient.convertToType(data['type'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('token')) {
+        obj['token'] = ApiClient.convertToType(data['token'], 'String');
       }
-      if (data.hasOwnProperty('fields')) {
-        obj['fields'] = ApiClient.convertToType(data['fields'], Object);
+      if (data.hasOwnProperty('enabled')) {
+        obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
+      }
+      if (data.hasOwnProperty('href')) {
+        obj['href'] = ApiClient.convertToType(data['href'], 'String');
+      }
+      if (data.hasOwnProperty('environments')) {
+        obj['environments'] = ApiClient.convertToType(data['environments'], ['String']);
+      }
+      if (data.hasOwnProperty('events')) {
+        obj['events'] = ApiClient.convertToType(data['events'], ['String']);
       }
     }
     return obj;
   }
 
   /**
+   * The unique identifier of the webhook.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * @member {String} type
+   * The url of the webhook
+   * @member {String} url
    */
-  exports.prototype['type'] = undefined;
+  exports.prototype['url'] = undefined;
   /**
-   * @member {String} message
+   * Webhook secret token used to sign the webhook's payload
+   * @member {String} token
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['token'] = undefined;
   /**
-   * @member {Object} fields
+   * Determine if the webhook is active.
+   * @member {Boolean} enabled
    */
-  exports.prototype['fields'] = undefined;
+  exports.prototype['enabled'] = undefined;
+  /**
+   * The API endpoint to retrieve the webhook.
+   * @member {String} href
+   */
+  exports.prototype['href'] = undefined;
+  /**
+   * The environments from which the webhook will receive events.
+   * @member {Array.<String>} environments
+   */
+  exports.prototype['environments'] = undefined;
+  /**
+   * The events that will be published to the webhook.
+   * @member {Array.<String>} events
+   */
+  exports.prototype['events'] = undefined;
 
 
 

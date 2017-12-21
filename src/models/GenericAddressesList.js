@@ -25,32 +25,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Report'], factory);
+    define(['ApiClient', 'models/GenericAddress'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Report'));
+    module.exports = factory(require('../ApiClient'), require('./GenericAddress'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.ReportsList = factory(root.Onfido.ApiClient, root.Onfido.Report);
+    root.Onfido.GenericAddressesList = factory(root.Onfido.ApiClient, root.Onfido.GenericAddress);
   }
-}(this, function(ApiClient, Report) {
+}(this, function(ApiClient, GenericAddress) {
   'use strict';
 
 
 
 
   /**
-   * The ReportsList model module.
-   * @module models/ReportsList
+   * The GenericAddressesList model module.
+   * @module models/GenericAddressesList
    * @version 1.1.0
    */
 
   /**
-   * Constructs a new <code>ReportsList</code>.
-   * @alias module:models/ReportsList
+   * Constructs a new <code>GenericAddressesList</code>.
+   * @alias module:models/GenericAddressesList
    * @class
    */
   var exports = function() {
@@ -60,27 +60,27 @@
   };
 
   /**
-   * Constructs a <code>ReportsList</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GenericAddressesList</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:models/ReportsList} obj Optional instance to populate.
-   * @return {module:models/ReportsList} The populated <code>ReportsList</code> instance.
+   * @param {module:models/GenericAddressesList} obj Optional instance to populate.
+   * @return {module:models/GenericAddressesList} The populated <code>GenericAddressesList</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('reports')) {
-        obj['reports'] = ApiClient.convertToType(data['reports'], [Report]);
+      if (data.hasOwnProperty('addresses')) {
+        obj['addresses'] = ApiClient.convertToType(data['addresses'], [GenericAddress]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Array.<module:models/Report>} reports
+   * @member {Array.<module:models/GenericAddress>} addresses
    */
-  exports.prototype['reports'] = undefined;
+  exports.prototype['addresses'] = undefined;
 
 
 

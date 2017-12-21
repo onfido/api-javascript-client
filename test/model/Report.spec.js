@@ -1,6 +1,6 @@
 /**
  * Onfido API
- * The Onfido API is used to submit background checking requests
+ * The Onfido API is used to submit check requests.
  *
  * OpenAPI spec version: 2.0.0
  * 
@@ -97,6 +97,12 @@
 
     it('should have the property result (base name: "result")', function() {
       // uncomment below and update the code to test the property result
+      //var instane = new Onfido.Report();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property subResult (base name: "sub_result")', function() {
+      // uncomment below and update the code to test the property subResult
       //var instane = new Onfido.Report();
       //expect(instance).to.be();
     });

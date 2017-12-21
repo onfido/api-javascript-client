@@ -1,6 +1,6 @@
 /**
  * Onfido API
- * The Onfido API is used to submit background checking requests
+ * The Onfido API is used to submit check requests.
  *
  * OpenAPI spec version: 2.0.0
  * 
@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Error', 'models/Applicant', 'models/Check', 'models/CheckCreationRequest', 'models/Document', 'models/Report', 'models/ReportTypeGroup', 'models/ApplicantsList', 'models/ChecksList', 'models/DocumentsList', 'models/ReportTypeGroupsList', 'models/ReportsList'], factory);
+    define(['ApiClient', 'models/Error', 'models/Applicant', 'models/Check', 'models/CheckCreationRequest', 'models/Webhook', 'models/GenericAddressesList', 'models/Document', 'models/LivePhoto', 'models/Report', 'models/ReportTypeGroup', 'models/ApplicantsList', 'models/ChecksList', 'models/DocumentsList', 'models/LivePhotosList', 'models/ReportTypeGroupsList', 'models/ReportsList', 'models/WebhooksList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../models/Error'), require('../models/Applicant'), require('../models/Check'), require('../models/CheckCreationRequest'), require('../models/Document'), require('../models/Report'), require('../models/ReportTypeGroup'), require('../models/ApplicantsList'), require('../models/ChecksList'), require('../models/DocumentsList'), require('../models/ReportTypeGroupsList'), require('../models/ReportsList'));
+    module.exports = factory(require('../ApiClient'), require('../models/Error'), require('../models/Applicant'), require('../models/Check'), require('../models/CheckCreationRequest'), require('../models/Webhook'), require('../models/GenericAddressesList'), require('../models/Document'), require('../models/LivePhoto'), require('../models/Report'), require('../models/ReportTypeGroup'), require('../models/ApplicantsList'), require('../models/ChecksList'), require('../models/DocumentsList'), require('../models/LivePhotosList'), require('../models/ReportTypeGroupsList'), require('../models/ReportsList'), require('../models/WebhooksList'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Error, root.Onfido.Applicant, root.Onfido.Check, root.Onfido.CheckCreationRequest, root.Onfido.Document, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ApplicantsList, root.Onfido.ChecksList, root.Onfido.DocumentsList, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList);
+    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Error, root.Onfido.Applicant, root.Onfido.Check, root.Onfido.CheckCreationRequest, root.Onfido.Webhook, root.Onfido.GenericAddressesList, root.Onfido.Document, root.Onfido.LivePhoto, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ApplicantsList, root.Onfido.ChecksList, root.Onfido.DocumentsList, root.Onfido.LivePhotosList, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.WebhooksList);
   }
-}(this, function(ApiClient, Error, Applicant, Check, CheckCreationRequest, Document, Report, ReportTypeGroup, ApplicantsList, ChecksList, DocumentsList, ReportTypeGroupsList, ReportsList) {
+}(this, function(ApiClient, Error, Applicant, Check, CheckCreationRequest, Webhook, GenericAddressesList, Document, LivePhoto, Report, ReportTypeGroup, ApplicantsList, ChecksList, DocumentsList, LivePhotosList, ReportTypeGroupsList, ReportsList, WebhooksList) {
   'use strict';
 
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 1.0.1
+   * @version 1.1.0
    */
 
   /**
@@ -197,6 +197,47 @@
     }
 
     /**
+     * Callback function to receive the result of the createWebhook operation.
+     * @callback module:api/DefaultApi~createWebhookCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/Webhook} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create a webhook
+     * @param {Object} opts Optional parameters
+     * @param {module:models/Webhook} opts.data 
+     * @param {module:api/DefaultApi~createWebhookCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/Webhook}
+     */
+    this.createWebhook = function(opts, callback) {
+      opts = opts || {};
+      var postBody = opts['data'];
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Webhook;
+
+      return this.apiClient.callApi(
+        '/webhooks', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the destroyApplicant operation.
      * @callback module:api/DefaultApi~destroyApplicantCallback
      * @param {String} error Error message, if any.
@@ -287,6 +328,97 @@
 
       return this.apiClient.callApi(
         '/applicants/{applicant_id}/documents/{document_id}/download', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the downloadLivePhoto operation.
+     * @callback module:api/DefaultApi~downloadLivePhotoCallback
+     * @param {String} error Error message, if any.
+     * @param {File} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Download live photo
+     * Live photos are downloaded using this endpoint.
+     * @param {String} livePhotoId The live photo’s unique identifier.
+     * @param {module:api/DefaultApi~downloadLivePhotoCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link File}
+     */
+    this.downloadLivePhoto = function(livePhotoId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'livePhotoId' is set
+      if (livePhotoId == undefined || livePhotoId == null) {
+        throw new Error("Missing the required parameter 'livePhotoId' when calling downloadLivePhoto");
+      }
+
+
+      var pathParams = {
+        'live_photo_id': livePhotoId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = File;
+
+      return this.apiClient.callApi(
+        '/live_photos/{live_photo_id}/download', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the findAddresses operation.
+     * @callback module:api/DefaultApi~findAddressesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/GenericAddressesList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Search for addresses by postcode
+     * @param {String} postcode 
+     * @param {module:api/DefaultApi~findAddressesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/GenericAddressesList}
+     */
+    this.findAddresses = function(postcode, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'postcode' is set
+      if (postcode == undefined || postcode == null) {
+        throw new Error("Missing the required parameter 'postcode' when calling findAddresses");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'postcode': postcode
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = GenericAddressesList;
+
+      return this.apiClient.callApi(
+        '/addresses/pick', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -442,6 +574,51 @@
     }
 
     /**
+     * Callback function to receive the result of the findLivePhoto operation.
+     * @callback module:api/DefaultApi~findLivePhotoCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/LivePhoto} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve live photo
+     * @param {String} livePhotoId The live photo’s unique identifier.
+     * @param {module:api/DefaultApi~findLivePhotoCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/LivePhoto}
+     */
+    this.findLivePhoto = function(livePhotoId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'livePhotoId' is set
+      if (livePhotoId == undefined || livePhotoId == null) {
+        throw new Error("Missing the required parameter 'livePhotoId' when calling findLivePhoto");
+      }
+
+
+      var pathParams = {
+        'live_photo_id': livePhotoId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = LivePhoto;
+
+      return this.apiClient.callApi(
+        '/live_photos/{live_photo_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the findReport operation.
      * @callback module:api/DefaultApi~findReportCallback
      * @param {String} error Error message, if any.
@@ -533,6 +710,51 @@
 
       return this.apiClient.callApi(
         '/report_type_groups/{report_type_group_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the findWebhook operation.
+     * @callback module:api/DefaultApi~findWebhookCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/Webhook} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a Webhook
+     * @param {String} webhookId 
+     * @param {module:api/DefaultApi~findWebhookCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/Webhook}
+     */
+    this.findWebhook = function(webhookId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'webhookId' is set
+      if (webhookId == undefined || webhookId == null) {
+        throw new Error("Missing the required parameter 'webhookId' when calling findWebhook");
+      }
+
+
+      var pathParams = {
+        'webhook_id': webhookId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Webhook;
+
+      return this.apiClient.callApi(
+        '/webhooks/{webhook_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -668,6 +890,51 @@
     }
 
     /**
+     * Callback function to receive the result of the listLivePhotos operation.
+     * @callback module:api/DefaultApi~listLivePhotosCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/LivePhotosList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List live photos
+     * @param {String} applicantId The id of the applicant the live photos belongs to.
+     * @param {module:api/DefaultApi~listLivePhotosCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/LivePhotosList}
+     */
+    this.listLivePhotos = function(applicantId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'applicantId' is set
+      if (applicantId == undefined || applicantId == null) {
+        throw new Error("Missing the required parameter 'applicantId' when calling listLivePhotos");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'applicant_id': applicantId
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = LivePhotosList;
+
+      return this.apiClient.callApi(
+        '/live_photos', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listReportTypeGroups operation.
      * @callback module:api/DefaultApi~listReportTypeGroupsCallback
      * @param {String} error Error message, if any.
@@ -745,6 +1012,44 @@
 
       return this.apiClient.callApi(
         '/checks/{check_id}/reports', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listWebhooks operation.
+     * @callback module:api/DefaultApi~listWebhooksCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/WebhooksList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List webhooks
+     * @param {module:api/DefaultApi~listWebhooksCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/WebhooksList}
+     */
+    this.listWebhooks = function(callback) {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = WebhooksList;
+
+      return this.apiClient.callApi(
+        '/webhooks', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -947,6 +1252,63 @@
 
       return this.apiClient.callApi(
         '/applicants/{applicant_id}/documents', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the uploadLivePhoto operation.
+     * @callback module:api/DefaultApi~uploadLivePhotoCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/LivePhoto} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Upload live photo
+     * You can upload live photos to this endpoint. Like document upload, files must be uploaded as a multipart form. Valid file types are jpg, png and pdf. The file size must be between 32KB and 10MB. Live photos are validated at the point of upload to check that they contain exactly one face. This validation can be disabled by setting the advanced_validation argument to false. 
+     * @param {String} applicantId The applicant_id to associate the live photo to.
+     * @param {File} file The file to be uploaded.
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} opts.advancedValidation Validates that the live photo contains exactly one face.
+     * @param {module:api/DefaultApi~uploadLivePhotoCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/LivePhoto}
+     */
+    this.uploadLivePhoto = function(applicantId, file, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'applicantId' is set
+      if (applicantId == undefined || applicantId == null) {
+        throw new Error("Missing the required parameter 'applicantId' when calling uploadLivePhoto");
+      }
+
+      // verify the required parameter 'file' is set
+      if (file == undefined || file == null) {
+        throw new Error("Missing the required parameter 'file' when calling uploadLivePhoto");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+        'applicant_id': applicantId,
+        'file': file,
+        'advanced_validation': opts['advancedValidation']
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = ['multipart/form-data'];
+      var accepts = ['application/json'];
+      var returnType = LivePhoto;
+
+      return this.apiClient.callApi(
+        '/live_photos', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -1,6 +1,6 @@
 /**
  * Onfido API
- * The Onfido API is used to submit background checking requests
+ * The Onfido API is used to submit check requests.
  *
  * OpenAPI spec version: 2.0.0
  * 
@@ -25,16 +25,16 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Address', 'models/Applicant', 'models/ApplicantsList', 'models/Check', 'models/CheckCreationRequest', 'models/ChecksList', 'models/Document', 'models/DocumentsList', 'models/Error', 'models/IdNumber', 'models/Report', 'models/ReportType', 'models/ReportTypeGroup', 'models/ReportTypeGroupsList', 'models/ReportTypeOption', 'models/ReportsList', 'api/DefaultApi'], factory);
+    define(['ApiClient', 'models/Address', 'models/Applicant', 'models/ApplicantsList', 'models/Check', 'models/CheckCreationRequest', 'models/ChecksList', 'models/Document', 'models/DocumentsList', 'models/Error', 'models/GenericAddress', 'models/GenericAddressesList', 'models/IdNumber', 'models/LivePhoto', 'models/LivePhotosList', 'models/Report', 'models/ReportType', 'models/ReportTypeGroup', 'models/ReportTypeGroupsList', 'models/ReportTypeOption', 'models/ReportsList', 'models/Webhook', 'models/WebhooksList', 'api/DefaultApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./models/Address'), require('./models/Applicant'), require('./models/ApplicantsList'), require('./models/Check'), require('./models/CheckCreationRequest'), require('./models/ChecksList'), require('./models/Document'), require('./models/DocumentsList'), require('./models/Error'), require('./models/IdNumber'), require('./models/Report'), require('./models/ReportType'), require('./models/ReportTypeGroup'), require('./models/ReportTypeGroupsList'), require('./models/ReportTypeOption'), require('./models/ReportsList'), require('./api/DefaultApi'));
+    module.exports = factory(require('./ApiClient'), require('./models/Address'), require('./models/Applicant'), require('./models/ApplicantsList'), require('./models/Check'), require('./models/CheckCreationRequest'), require('./models/ChecksList'), require('./models/Document'), require('./models/DocumentsList'), require('./models/Error'), require('./models/GenericAddress'), require('./models/GenericAddressesList'), require('./models/IdNumber'), require('./models/LivePhoto'), require('./models/LivePhotosList'), require('./models/Report'), require('./models/ReportType'), require('./models/ReportTypeGroup'), require('./models/ReportTypeGroupsList'), require('./models/ReportTypeOption'), require('./models/ReportsList'), require('./models/Webhook'), require('./models/WebhooksList'), require('./api/DefaultApi'));
   }
-}(function(ApiClient, Address, Applicant, ApplicantsList, Check, CheckCreationRequest, ChecksList, Document, DocumentsList, Error, IdNumber, Report, ReportType, ReportTypeGroup, ReportTypeGroupsList, ReportTypeOption, ReportsList, DefaultApi) {
+}(function(ApiClient, Address, Applicant, ApplicantsList, Check, CheckCreationRequest, ChecksList, Document, DocumentsList, Error, GenericAddress, GenericAddressesList, IdNumber, LivePhoto, LivePhotosList, Report, ReportType, ReportTypeGroup, ReportTypeGroupsList, ReportTypeOption, ReportsList, Webhook, WebhooksList, DefaultApi) {
   'use strict';
 
   /**
-   * The_Onfido_API_is_used_to_submit_background_checking_requests.<br>
+   * The_Onfido_API_is_used_to_submit_check_requests_.<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -62,7 +62,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.0.1
+   * @version 1.1.0
    */
   var exports = {
     /**
@@ -116,10 +116,30 @@
      */
     Error: Error,
     /**
+     * The GenericAddress model constructor.
+     * @property {module:models/GenericAddress}
+     */
+    GenericAddress: GenericAddress,
+    /**
+     * The GenericAddressesList model constructor.
+     * @property {module:models/GenericAddressesList}
+     */
+    GenericAddressesList: GenericAddressesList,
+    /**
      * The IdNumber model constructor.
      * @property {module:models/IdNumber}
      */
     IdNumber: IdNumber,
+    /**
+     * The LivePhoto model constructor.
+     * @property {module:models/LivePhoto}
+     */
+    LivePhoto: LivePhoto,
+    /**
+     * The LivePhotosList model constructor.
+     * @property {module:models/LivePhotosList}
+     */
+    LivePhotosList: LivePhotosList,
     /**
      * The Report model constructor.
      * @property {module:models/Report}
@@ -150,6 +170,16 @@
      * @property {module:models/ReportsList}
      */
     ReportsList: ReportsList,
+    /**
+     * The Webhook model constructor.
+     * @property {module:models/Webhook}
+     */
+    Webhook: Webhook,
+    /**
+     * The WebhooksList model constructor.
+     * @property {module:models/WebhooksList}
+     */
+    WebhooksList: WebhooksList,
     /**
      * The DefaultApi service constructor.
      * @property {module:api/DefaultApi}

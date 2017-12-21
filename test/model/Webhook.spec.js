@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Onfido.ReportType();
+    instance = new Onfido.Webhook();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,34 +58,52 @@
       object[property] = value;
   }
 
-  describe('ReportType', function() {
-    it('should create an instance of ReportType', function() {
-      // uncomment below and update the code to test ReportType
-      //var instane = new Onfido.ReportType();
-      //expect(instance).to.be.a(Onfido.ReportType);
+  describe('Webhook', function() {
+    it('should create an instance of Webhook', function() {
+      // uncomment below and update the code to test Webhook
+      //var instane = new Onfido.Webhook();
+      //expect(instance).to.be.a(Onfido.Webhook);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new Onfido.ReportType();
+      //var instane = new Onfido.Webhook();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instane = new Onfido.ReportType();
+    it('should have the property url (base name: "url")', function() {
+      // uncomment below and update the code to test the property url
+      //var instane = new Onfido.Webhook();
       //expect(instance).to.be();
     });
 
-    it('should have the property variant (base name: "variant")', function() {
-      // uncomment below and update the code to test the property variant
-      //var instane = new Onfido.ReportType();
+    it('should have the property token (base name: "token")', function() {
+      // uncomment below and update the code to test the property token
+      //var instane = new Onfido.Webhook();
       //expect(instance).to.be();
     });
 
-    it('should have the property options (base name: "options")', function() {
-      // uncomment below and update the code to test the property options
-      //var instane = new Onfido.ReportType();
+    it('should have the property enabled (base name: "enabled")', function() {
+      // uncomment below and update the code to test the property enabled
+      //var instane = new Onfido.Webhook();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property href (base name: "href")', function() {
+      // uncomment below and update the code to test the property href
+      //var instane = new Onfido.Webhook();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property environments (base name: "environments")', function() {
+      // uncomment below and update the code to test the property environments
+      //var instane = new Onfido.Webhook();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property events (base name: "events")', function() {
+      // uncomment below and update the code to test the property events
+      //var instane = new Onfido.Webhook();
       //expect(instance).to.be();
     });
 

@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Onfido.Address();
+    instance = new Onfido.GenericAddress();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,82 +58,58 @@
       object[property] = value;
   }
 
-  describe('Address', function() {
-    it('should create an instance of Address', function() {
-      // uncomment below and update the code to test Address
-      //var instane = new Onfido.Address();
-      //expect(instance).to.be.a(Onfido.Address);
+  describe('GenericAddress', function() {
+    it('should create an instance of GenericAddress', function() {
+      // uncomment below and update the code to test GenericAddress
+      //var instane = new Onfido.GenericAddress();
+      //expect(instance).to.be.a(Onfido.GenericAddress);
     });
 
     it('should have the property flatNumber (base name: "flat_number")', function() {
       // uncomment below and update the code to test the property flatNumber
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property buildingNumber (base name: "building_number")', function() {
       // uncomment below and update the code to test the property buildingNumber
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property buildingName (base name: "building_name")', function() {
       // uncomment below and update the code to test the property buildingName
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property street (base name: "street")', function() {
       // uncomment below and update the code to test the property street
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property subStreet (base name: "sub_street")', function() {
       // uncomment below and update the code to test the property subStreet
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property town (base name: "town")', function() {
       // uncomment below and update the code to test the property town
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property postcode (base name: "postcode")', function() {
       // uncomment below and update the code to test the property postcode
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 
     it('should have the property country (base name: "country")', function() {
       // uncomment below and update the code to test the property country
-      //var instane = new Onfido.Address();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new Onfido.Address();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property startDate (base name: "start_date")', function() {
-      // uncomment below and update the code to test the property startDate
-      //var instane = new Onfido.Address();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property endDate (base name: "end_date")', function() {
-      // uncomment below and update the code to test the property endDate
-      //var instane = new Onfido.Address();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property state (base name: "state")', function() {
-      // uncomment below and update the code to test the property state
-      //var instane = new Onfido.Address();
+      //var instane = new Onfido.GenericAddress();
       //expect(instance).to.be();
     });
 

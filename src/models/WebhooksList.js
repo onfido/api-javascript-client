@@ -25,32 +25,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Report'], factory);
+    define(['ApiClient', 'models/Webhook'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Report'));
+    module.exports = factory(require('../ApiClient'), require('./Webhook'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.ReportsList = factory(root.Onfido.ApiClient, root.Onfido.Report);
+    root.Onfido.WebhooksList = factory(root.Onfido.ApiClient, root.Onfido.Webhook);
   }
-}(this, function(ApiClient, Report) {
+}(this, function(ApiClient, Webhook) {
   'use strict';
 
 
 
 
   /**
-   * The ReportsList model module.
-   * @module models/ReportsList
+   * The WebhooksList model module.
+   * @module models/WebhooksList
    * @version 1.1.0
    */
 
   /**
-   * Constructs a new <code>ReportsList</code>.
-   * @alias module:models/ReportsList
+   * Constructs a new <code>WebhooksList</code>.
+   * @alias module:models/WebhooksList
    * @class
    */
   var exports = function() {
@@ -60,27 +60,27 @@
   };
 
   /**
-   * Constructs a <code>ReportsList</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>WebhooksList</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:models/ReportsList} obj Optional instance to populate.
-   * @return {module:models/ReportsList} The populated <code>ReportsList</code> instance.
+   * @param {module:models/WebhooksList} obj Optional instance to populate.
+   * @return {module:models/WebhooksList} The populated <code>WebhooksList</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('reports')) {
-        obj['reports'] = ApiClient.convertToType(data['reports'], [Report]);
+      if (data.hasOwnProperty('webhooks')) {
+        obj['webhooks'] = ApiClient.convertToType(data['webhooks'], [Webhook]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Array.<module:models/Report>} reports
+   * @member {Array.<module:models/Webhook>} webhooks
    */
-  exports.prototype['reports'] = undefined;
+  exports.prototype['webhooks'] = undefined;
 
 
 

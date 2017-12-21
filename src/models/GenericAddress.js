@@ -34,7 +34,7 @@
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.Address = factory(root.Onfido.ApiClient);
+    root.Onfido.GenericAddress = factory(root.Onfido.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The Address model module.
-   * @module models/Address
+   * The GenericAddress model module.
+   * @module models/GenericAddress
    * @version 1.1.0
    */
 
   /**
-   * Constructs a new <code>Address</code>.
-   * @alias module:models/Address
+   * Constructs a new <code>GenericAddress</code>.
+   * @alias module:models/GenericAddress
    * @class
    */
   var exports = function() {
@@ -64,18 +64,14 @@
 
 
 
-
-
-
-
   };
 
   /**
-   * Constructs a <code>Address</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GenericAddress</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:models/Address} obj Optional instance to populate.
-   * @return {module:models/Address} The populated <code>Address</code> instance.
+   * @param {module:models/GenericAddress} obj Optional instance to populate.
+   * @return {module:models/GenericAddress} The populated <code>GenericAddress</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -104,18 +100,6 @@
       }
       if (data.hasOwnProperty('country')) {
         obj['country'] = ApiClient.convertToType(data['country'], 'String');
-      }
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('start_date')) {
-        obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
-      }
-      if (data.hasOwnProperty('end_date')) {
-        obj['end_date'] = ApiClient.convertToType(data['end_date'], 'Date');
-      }
-      if (data.hasOwnProperty('state')) {
-        obj['state'] = ApiClient.convertToType(data['state'], 'String');
       }
     }
     return obj;
@@ -161,25 +145,6 @@
    * @member {String} country
    */
   exports.prototype['country'] = undefined;
-  /**
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
-   * The date the applicant started living at this address
-   * @member {Date} start_date
-   */
-  exports.prototype['start_date'] = undefined;
-  /**
-   * The date the applicant left this address. If current residence, leave null
-   * @member {Date} end_date
-   */
-  exports.prototype['end_date'] = undefined;
-  /**
-   * The address state. US states must use the USPS abbreviation (see also ISO 3166-2:US), for example AK, CA, or TX.
-   * @member {String} state
-   */
-  exports.prototype['state'] = undefined;
 
 
 

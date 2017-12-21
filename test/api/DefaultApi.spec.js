@@ -1,6 +1,6 @@
 /**
  * Onfido API
- * The Onfido API is used to submit background checking requests
+ * The Onfido API is used to submit check requests.
  *
  * OpenAPI spec version: 2.0.0
  * 
@@ -89,6 +89,16 @@
         done();
       });
     });
+    describe('createWebhook', function() {
+      it('should call createWebhook successfully', function(done) {
+        //uncomment below and update the code to test createWebhook
+        //instance.createWebhook(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('destroyApplicant', function() {
       it('should call destroyApplicant successfully', function(done) {
         //uncomment below and update the code to test destroyApplicant
@@ -103,6 +113,26 @@
       it('should call downloadDocument successfully', function(done) {
         //uncomment below and update the code to test downloadDocument
         //instance.downloadDocument(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('downloadLivePhoto', function() {
+      it('should call downloadLivePhoto successfully', function(done) {
+        //uncomment below and update the code to test downloadLivePhoto
+        //instance.downloadLivePhoto(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findAddresses', function() {
+      it('should call findAddresses successfully', function(done) {
+        //uncomment below and update the code to test findAddresses
+        //instance.findAddresses(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -139,6 +169,16 @@
         done();
       });
     });
+    describe('findLivePhoto', function() {
+      it('should call findLivePhoto successfully', function(done) {
+        //uncomment below and update the code to test findLivePhoto
+        //instance.findLivePhoto(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findReport', function() {
       it('should call findReport successfully', function(done) {
         //uncomment below and update the code to test findReport
@@ -153,6 +193,16 @@
       it('should call findReportTypeGroup successfully', function(done) {
         //uncomment below and update the code to test findReportTypeGroup
         //instance.findReportTypeGroup(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findWebhook', function() {
+      it('should call findWebhook successfully', function(done) {
+        //uncomment below and update the code to test findWebhook
+        //instance.findWebhook(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -189,6 +239,16 @@
         done();
       });
     });
+    describe('listLivePhotos', function() {
+      it('should call listLivePhotos successfully', function(done) {
+        //uncomment below and update the code to test listLivePhotos
+        //instance.listLivePhotos(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listReportTypeGroups', function() {
       it('should call listReportTypeGroups successfully', function(done) {
         //uncomment below and update the code to test listReportTypeGroups
@@ -203,6 +263,16 @@
       it('should call listReports successfully', function(done) {
         //uncomment below and update the code to test listReports
         //instance.listReports(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listWebhooks', function() {
+      it('should call listWebhooks successfully', function(done) {
+        //uncomment below and update the code to test listWebhooks
+        //instance.listWebhooks(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -243,6 +313,16 @@
       it('should call uploadDocument successfully', function(done) {
         //uncomment below and update the code to test uploadDocument
         //instance.uploadDocument(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('uploadLivePhoto', function() {
+      it('should call uploadLivePhoto successfully', function(done) {
+        //uncomment below and update the code to test uploadLivePhoto
+        //instance.uploadLivePhoto(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

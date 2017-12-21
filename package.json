@@ -1,7 +1,7 @@
 {
   "name": "onfido",
-  "version": "1.0.1",
-  "description": "The_Onfido_API_is_used_to_submit_background_checking_requests",
+  "version": "1.1.0",
+  "description": "The_Onfido_API_is_used_to_submit_check_requests_",
   "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
