@@ -45,7 +45,7 @@
   /**
    * The Webhook model module.
    * @module models/Webhook
-   * @version 1.1.0
+   * @version 1.1.1
    */
 
   /**

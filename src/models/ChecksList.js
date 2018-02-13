@@ -45,7 +45,7 @@
   /**
    * The ChecksList model module.
    * @module models/ChecksList
-   * @version 1.1.0
+   * @version 1.1.1
    */
 
   /**
