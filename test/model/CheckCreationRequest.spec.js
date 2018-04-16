@@ -113,6 +113,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property brandId (base name: "brand_id")', function() {
+      // uncomment below and update the code to test the property brandId
+      //var instane = new Onfido.CheckCreationRequest();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property async (base name: "async")', function() {
+      // uncomment below and update the code to test the property async
+      //var instane = new Onfido.CheckCreationRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

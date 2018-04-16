@@ -45,7 +45,7 @@
   /**
    * The Applicant model module.
    * @module models/Applicant
-   * @version 1.1.1
+   * @version 1.2.0
    */
 
   /**

@@ -45,7 +45,7 @@
   /**
    * The CheckCreationRequest model module.
    * @module models/CheckCreationRequest
-   * @version 1.1.1
+   * @version 1.2.0
    */
 
   /**
@@ -58,6 +58,8 @@
     var _this = this;
 
     _this['type'] = type;
+
+
 
 
 
@@ -101,6 +103,12 @@
       }
       if (data.hasOwnProperty('charge_applicant_for_check')) {
         obj['charge_applicant_for_check'] = ApiClient.convertToType(data['charge_applicant_for_check'], 'Boolean');
+      }
+      if (data.hasOwnProperty('brand_id')) {
+        obj['brand_id'] = ApiClient.convertToType(data['brand_id'], 'String');
+      }
+      if (data.hasOwnProperty('async')) {
+        obj['async'] = ApiClient.convertToType(data['async'], 'Boolean');
       }
     }
     return obj;
@@ -146,6 +154,16 @@
    * @member {Boolean} charge_applicant_for_check
    */
   exports.prototype['charge_applicant_for_check'] = undefined;
+  /**
+   * ID of the brand under which the check should be conducted. Optional.
+   * @member {String} brand_id
+   */
+  exports.prototype['brand_id'] = undefined;
+  /**
+   * If this is set to true, checks will be queued for processing and no reports will be returned immediately. Defaults to false
+   * @member {Boolean} async
+   */
+  exports.prototype['async'] = undefined;
 
 
 

@@ -45,7 +45,7 @@
   /**
    * The GenericAddressesList model module.
    * @module models/GenericAddressesList
-   * @version 1.1.1
+   * @version 1.2.0
    */
 
   /**

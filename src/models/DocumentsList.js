@@ -45,7 +45,7 @@
   /**
    * The DocumentsList model module.
    * @module models/DocumentsList
-   * @version 1.1.1
+   * @version 1.2.0
    */
 
   /**
