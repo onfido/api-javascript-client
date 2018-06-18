@@ -42,7 +42,7 @@
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 1.2.0
+   * @version 1.3.0
    */
 
   /**
@@ -770,16 +770,22 @@
 
     /**
      * List Applicants
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.page The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60;
+     * @param {String} opts.perPage The number of objects per page. Defaults to 20 if omitted.
      * @param {module:api/DefaultApi~listApplicantsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:models/ApplicantsList}
      */
-    this.listApplicants = function(callback) {
+    this.listApplicants = function(opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
 
       var pathParams = {
       };
       var queryParams = {
+        'page': opts['page'],
+        'per_page': opts['perPage']
       };
       var headerParams = {
       };
@@ -809,10 +815,14 @@
     /**
      * Retrieve Checks
      * @param {String} applicantId 
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.page The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60;
+     * @param {String} opts.perPage The number of objects per page. Defaults to 20 if omitted.
      * @param {module:api/DefaultApi~listChecksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:models/ChecksList}
      */
-    this.listChecks = function(applicantId, callback) {
+    this.listChecks = function(applicantId, opts, callback) {
+      opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'applicantId' is set
@@ -825,6 +835,8 @@
         'applicant_id': applicantId
       };
       var queryParams = {
+        'page': opts['page'],
+        'per_page': opts['perPage']
       };
       var headerParams = {
       };

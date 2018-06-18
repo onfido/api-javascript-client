@@ -45,7 +45,7 @@
   /**
    * The ReportType model module.
    * @module models/ReportType
-   * @version 1.2.0
+   * @version 1.3.0
    */
 
   /**

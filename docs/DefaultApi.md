@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 
 <a name="listApplicants"></a>
 # **listApplicants**
-> ApplicantsList listApplicants()
+> ApplicantsList listApplicants(opts)
 
 List Applicants
 
@@ -689,6 +689,11 @@ Token.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
 
+var opts = { 
+  'page': "page_example", // String | The page to return. Defaults to the first page if omitted. The first page is `page=1`
+  'perPage': "perPage_example" // String | The number of objects per page. Defaults to 20 if omitted.
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error.response.body);
@@ -696,11 +701,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.listApplicants(callback);
+apiInstance.listApplicants(opts, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **String**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
+ **perPage** | **String**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
 
 ### Return type
 
@@ -708,7 +717,7 @@ This endpoint does not need any parameter.
 
 <a name="listChecks"></a>
 # **listChecks**
-> ChecksList listChecks(applicantId)
+> ChecksList listChecks(applicantId, opts)
 
 Retrieve Checks
 
@@ -726,6 +735,10 @@ var apiInstance = new Onfido.DefaultApi();
 
 var applicantId = "applicantId_example"; // String | 
 
+var opts = { 
+  'page': "page_example", // String | The page to return. Defaults to the first page if omitted. The first page is `page=1`
+  'perPage': "perPage_example" // String | The number of objects per page. Defaults to 20 if omitted.
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -734,7 +747,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.listChecks(applicantId, callback);
+apiInstance.listChecks(applicantId, opts, callback);
 ```
 
 ### Parameters
@@ -742,6 +755,8 @@ apiInstance.listChecks(applicantId, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicantId** | **String**|  | 
+ **page** | **String**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
+ **perPage** | **String**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
 
 ### Return type
 
