@@ -45,7 +45,7 @@
   /**
    * The ReportTypeOption model module.
    * @module models/ReportTypeOption
-   * @version 1.3.0
+   * @version 1.4.0
    */
 
   /**

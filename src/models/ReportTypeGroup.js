@@ -45,7 +45,7 @@
   /**
    * The ReportTypeGroup model module.
    * @module models/ReportTypeGroup
-   * @version 1.3.0
+   * @version 1.4.0
    */
 
   /**
