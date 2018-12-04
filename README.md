@@ -108,6 +108,11 @@ api.createApplicant({'data': applicant}, createApplicantCallback);
 
 
 ```
+## US Region
+
+To use the US region you need the following configuration:
+
+`api.apiClient.basePath = 'https://api.us.onfido.com/v2';`
 
 ## Documentation for API Endpoints
 
