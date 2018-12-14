@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**listReportTypeGroups**](DefaultApi.md#listReportTypeGroups) | **GET** /report_type_groups | Retrieve all report type groups
 [**listReports**](DefaultApi.md#listReports) | **GET** /checks/{check_id}/reports | All the reports belonging to a particular check can be listed from this endpoint.
 [**listWebhooks**](DefaultApi.md#listWebhooks) | **GET** /webhooks | List webhooks
+[**restoreApplicant**](DefaultApi.md#restoreApplicant) | **POST** /applicants/{applicant_id}/restore | Restore Applicant
 [**resumeCheck**](DefaultApi.md#resumeCheck) | **POST** /checks/{check_id}/resume | Resume a Check
 [**resumeReport**](DefaultApi.md#resumeReport) | **POST** /checks/{check_id}/reports/{report_id}/resume | This endpoint is for resuming individual paused reports.
 [**updateApplicant**](DefaultApi.md#updateApplicant) | **PUT** /applicants/{applicant_id} | Update Applicant
@@ -690,8 +691,9 @@ Token.apiKeyPrefix = 'Token';
 var apiInstance = new Onfido.DefaultApi();
 
 var opts = { 
-  'page': "page_example", // String | The page to return. Defaults to the first page if omitted. The first page is `page=1`
-  'perPage': "perPage_example" // String | The number of objects per page. Defaults to 20 if omitted.
+  'page': 56, // Integer | The page to return. Defaults to the first page if omitted. The first page is `page=1`
+  'perPage': 56, // Integer | The number of objects per page. Defaults to 20 if omitted.
+  'includeDeleted': true // Boolean | Whether to also include applicants scheduled for deletion. Defaults to false if omitted.
 };
 
 var callback = function(error, data, response) {
@@ -708,8 +710,9 @@ apiInstance.listApplicants(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **String**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
- **perPage** | **String**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
+ **page** | **Integer**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
+ **perPage** | **Integer**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
+ **includeDeleted** | **Boolean**| Whether to also include applicants scheduled for deletion. Defaults to false if omitted. | [optional] 
 
 ### Return type
 
@@ -736,8 +739,8 @@ var apiInstance = new Onfido.DefaultApi();
 var applicantId = "applicantId_example"; // String | 
 
 var opts = { 
-  'page': "page_example", // String | The page to return. Defaults to the first page if omitted. The first page is `page=1`
-  'perPage': "perPage_example" // String | The number of objects per page. Defaults to 20 if omitted.
+  'page': 56, // Integer | The page to return. Defaults to the first page if omitted. The first page is `page=1`
+  'perPage': 56 // Integer | The number of objects per page. Defaults to 20 if omitted.
 };
 
 var callback = function(error, data, response) {
@@ -755,8 +758,8 @@ apiInstance.listChecks(applicantId, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicantId** | **String**|  | 
- **page** | **String**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
- **perPage** | **String**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
+ **page** | **Integer**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
+ **perPage** | **Integer**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
 
 ### Return type
 
@@ -956,6 +959,47 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**WebhooksList**](WebhooksList.md)
+
+<a name="restoreApplicant"></a>
+# **restoreApplicant**
+> restoreApplicant(applicantId)
+
+Restore Applicant
+
+### Example
+```javascript
+var Onfido = require('onfido');
+var defaultClient = Onfido.ApiClient.default;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'token=' + 'YOUR API KEY';
+Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new Onfido.DefaultApi();
+
+var applicantId = "applicantId_example"; // String | 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error.response.body);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.restoreApplicant(applicantId, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicantId** | **String**|  | 
+
+### Return type
+
+null (empty response body)
 
 <a name="resumeCheck"></a>
 # **resumeCheck**

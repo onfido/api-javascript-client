@@ -279,6 +279,16 @@
         done();
       });
     });
+    describe('restoreApplicant', function() {
+      it('should call restoreApplicant successfully', function(done) {
+        //uncomment below and update the code to test restoreApplicant
+        //instance.restoreApplicant(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('resumeCheck', function() {
       it('should call resumeCheck successfully', function(done) {
         //uncomment below and update the code to test resumeCheck

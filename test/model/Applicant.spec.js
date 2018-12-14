@@ -77,6 +77,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property deleteAt (base name: "delete_at")', function() {
+      // uncomment below and update the code to test the property deleteAt
+      //var instane = new Onfido.Applicant();
+      //expect(instance).to.be();
+    });
+
     it('should have the property href (base name: "href")', function() {
       // uncomment below and update the code to test the property href
       //var instane = new Onfido.Applicant();

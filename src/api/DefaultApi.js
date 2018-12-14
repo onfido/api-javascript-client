@@ -42,7 +42,7 @@
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 1.4.0
+   * @version 1.5.0
    */
 
   /**
@@ -771,8 +771,9 @@
     /**
      * List Applicants
      * @param {Object} opts Optional parameters
-     * @param {String} opts.page The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60;
-     * @param {String} opts.perPage The number of objects per page. Defaults to 20 if omitted.
+     * @param {Integer} opts.page The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60;
+     * @param {Integer} opts.perPage The number of objects per page. Defaults to 20 if omitted.
+     * @param {Boolean} opts.includeDeleted Whether to also include applicants scheduled for deletion. Defaults to false if omitted.
      * @param {module:api/DefaultApi~listApplicantsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:models/ApplicantsList}
      */
@@ -785,7 +786,8 @@
       };
       var queryParams = {
         'page': opts['page'],
-        'per_page': opts['perPage']
+        'per_page': opts['perPage'],
+        'include_deleted': opts['includeDeleted']
       };
       var headerParams = {
       };
@@ -816,8 +818,8 @@
      * Retrieve Checks
      * @param {String} applicantId 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.page The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60;
-     * @param {String} opts.perPage The number of objects per page. Defaults to 20 if omitted.
+     * @param {Integer} opts.page The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60;
+     * @param {Integer} opts.perPage The number of objects per page. Defaults to 20 if omitted.
      * @param {module:api/DefaultApi~listChecksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:models/ChecksList}
      */
@@ -1062,6 +1064,50 @@
 
       return this.apiClient.callApi(
         '/webhooks', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the restoreApplicant operation.
+     * @callback module:api/DefaultApi~restoreApplicantCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Restore Applicant
+     * @param {String} applicantId 
+     * @param {module:api/DefaultApi~restoreApplicantCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.restoreApplicant = function(applicantId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'applicantId' is set
+      if (applicantId == undefined || applicantId == null) {
+        throw new Error("Missing the required parameter 'applicantId' when calling restoreApplicant");
+      }
+
+
+      var pathParams = {
+        'applicant_id': applicantId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/applicants/{applicant_id}/restore', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

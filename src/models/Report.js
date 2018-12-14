@@ -45,7 +45,7 @@
   /**
    * The Report model module.
    * @module models/Report
-   * @version 1.4.0
+   * @version 1.5.0
    */
 
   /**
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -112,6 +113,9 @@
       }
       if (data.hasOwnProperty('properties')) {
         obj['properties'] = ApiClient.convertToType(data['properties'], Object);
+      }
+      if (data.hasOwnProperty('documents')) {
+        obj['documents'] = ApiClient.convertToType(data['documents'], [Object]);
       }
     }
     return obj;
@@ -172,6 +176,11 @@
    * @member {Object} properties
    */
   exports.prototype['properties'] = undefined;
+  /**
+   * Array of objects with document ids that were used in the Onfido engine. [ONLY USED IN A DOCUMENT CHECK]
+   * @member {Array.<Object>} documents
+   */
+  exports.prototype['documents'] = undefined;
 
 
 

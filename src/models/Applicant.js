@@ -45,7 +45,7 @@
   /**
    * The Applicant model module.
    * @module models/Applicant
-   * @version 1.4.0
+   * @version 1.5.0
    */
 
   /**
@@ -57,6 +57,7 @@
    */
   var exports = function(firstName, lastName) {
     var _this = this;
+
 
 
 
@@ -97,6 +98,9 @@
       }
       if (data.hasOwnProperty('created_at')) {
         obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('delete_at')) {
+        obj['delete_at'] = ApiClient.convertToType(data['delete_at'], 'Date');
       }
       if (data.hasOwnProperty('href')) {
         obj['href'] = ApiClient.convertToType(data['href'], 'String');
@@ -169,6 +173,11 @@
    * @member {Date} created_at
    */
   exports.prototype['created_at'] = undefined;
+  /**
+   * The date and time when this applicant is scheduled to be deleted, or null if the applicant is not scheduled to be deleted
+   * @member {Date} delete_at
+   */
+  exports.prototype['delete_at'] = undefined;
   /**
    * The uri of this resource
    * @member {String} href
