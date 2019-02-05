@@ -25,24 +25,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Error', 'models/Applicant', 'models/Check', 'models/CheckCreationRequest', 'models/Webhook', 'models/GenericAddressesList', 'models/Document', 'models/LivePhoto', 'models/Report', 'models/ReportTypeGroup', 'models/ApplicantsList', 'models/ChecksList', 'models/DocumentsList', 'models/LivePhotosList', 'models/ReportTypeGroupsList', 'models/ReportsList', 'models/WebhooksList'], factory);
+    define(['ApiClient', 'models/Error', 'models/Applicant', 'models/Check', 'models/CheckCreationRequest', 'models/Webhook', 'models/GenericAddressesList', 'models/Document', 'models/LivePhoto', 'models/LiveVideo', 'models/Report', 'models/ReportTypeGroup', 'models/ApplicantsList', 'models/ChecksList', 'models/DocumentsList', 'models/LivePhotosList', 'models/LiveVideosList', 'models/ReportTypeGroupsList', 'models/ReportsList', 'models/WebhooksList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../models/Error'), require('../models/Applicant'), require('../models/Check'), require('../models/CheckCreationRequest'), require('../models/Webhook'), require('../models/GenericAddressesList'), require('../models/Document'), require('../models/LivePhoto'), require('../models/Report'), require('../models/ReportTypeGroup'), require('../models/ApplicantsList'), require('../models/ChecksList'), require('../models/DocumentsList'), require('../models/LivePhotosList'), require('../models/ReportTypeGroupsList'), require('../models/ReportsList'), require('../models/WebhooksList'));
+    module.exports = factory(require('../ApiClient'), require('../models/Error'), require('../models/Applicant'), require('../models/Check'), require('../models/CheckCreationRequest'), require('../models/Webhook'), require('../models/GenericAddressesList'), require('../models/Document'), require('../models/LivePhoto'), require('../models/LiveVideo'), require('../models/Report'), require('../models/ReportTypeGroup'), require('../models/ApplicantsList'), require('../models/ChecksList'), require('../models/DocumentsList'), require('../models/LivePhotosList'), require('../models/LiveVideosList'), require('../models/ReportTypeGroupsList'), require('../models/ReportsList'), require('../models/WebhooksList'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Error, root.Onfido.Applicant, root.Onfido.Check, root.Onfido.CheckCreationRequest, root.Onfido.Webhook, root.Onfido.GenericAddressesList, root.Onfido.Document, root.Onfido.LivePhoto, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ApplicantsList, root.Onfido.ChecksList, root.Onfido.DocumentsList, root.Onfido.LivePhotosList, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.WebhooksList);
+    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Error, root.Onfido.Applicant, root.Onfido.Check, root.Onfido.CheckCreationRequest, root.Onfido.Webhook, root.Onfido.GenericAddressesList, root.Onfido.Document, root.Onfido.LivePhoto, root.Onfido.LiveVideo, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ApplicantsList, root.Onfido.ChecksList, root.Onfido.DocumentsList, root.Onfido.LivePhotosList, root.Onfido.LiveVideosList, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.WebhooksList);
   }
-}(this, function(ApiClient, Error, Applicant, Check, CheckCreationRequest, Webhook, GenericAddressesList, Document, LivePhoto, Report, ReportTypeGroup, ApplicantsList, ChecksList, DocumentsList, LivePhotosList, ReportTypeGroupsList, ReportsList, WebhooksList) {
+}(this, function(ApiClient, Error, Applicant, Check, CheckCreationRequest, Webhook, GenericAddressesList, Document, LivePhoto, LiveVideo, Report, ReportTypeGroup, ApplicantsList, ChecksList, DocumentsList, LivePhotosList, LiveVideosList, ReportTypeGroupsList, ReportsList, WebhooksList) {
   'use strict';
 
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 1.5.0
+   * @version 1.6.0
    */
 
   /**
@@ -619,6 +619,51 @@
     }
 
     /**
+     * Callback function to receive the result of the findLiveVideo operation.
+     * @callback module:api/DefaultApi~findLiveVideoCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/LiveVideo} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve live video
+     * @param {String} liveVideoId The live video’s unique identifier.
+     * @param {module:api/DefaultApi~findLiveVideoCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/LiveVideo}
+     */
+    this.findLiveVideo = function(liveVideoId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'liveVideoId' is set
+      if (liveVideoId == undefined || liveVideoId == null) {
+        throw new Error("Missing the required parameter 'liveVideoId' when calling findLiveVideo");
+      }
+
+
+      var pathParams = {
+        'live_video_id': liveVideoId
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = LiveVideo;
+
+      return this.apiClient.callApi(
+        '/live_videos/{live_video_id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the findReport operation.
      * @callback module:api/DefaultApi~findReportCallback
      * @param {String} error Error message, if any.
@@ -913,7 +958,7 @@
 
     /**
      * List live photos
-     * @param {String} applicantId The id of the applicant the live photos belongs to.
+     * @param {String} applicantId The id of the applicant the live photos belong to.
      * @param {module:api/DefaultApi~listLivePhotosCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:models/LivePhotosList}
      */
@@ -943,6 +988,51 @@
 
       return this.apiClient.callApi(
         '/live_photos', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the listLiveVideos operation.
+     * @callback module:api/DefaultApi~listLiveVideosCallback
+     * @param {String} error Error message, if any.
+     * @param {module:models/LiveVideosList} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List live videos
+     * @param {String} applicantId The id of the applicant the live videos belong to.
+     * @param {module:api/DefaultApi~listLiveVideosCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:models/LiveVideosList}
+     */
+    this.listLiveVideos = function(applicantId, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'applicantId' is set
+      if (applicantId == undefined || applicantId == null) {
+        throw new Error("Missing the required parameter 'applicantId' when calling listLiveVideos");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'applicant_id': applicantId
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = LiveVideosList;
+
+      return this.apiClient.callApi(
+        '/live_videos', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

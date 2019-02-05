@@ -45,7 +45,7 @@
   /**
    * The LivePhoto model module.
    * @module models/LivePhoto
-   * @version 1.5.0
+   * @version 1.6.0
    */
 
   /**
@@ -55,7 +55,6 @@
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -82,9 +81,6 @@
       }
       if (data.hasOwnProperty('created_at')) {
         obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
-      }
-      if (data.hasOwnProperty('applicant_id')) {
-        obj['applicant_id'] = ApiClient.convertToType(data['applicant_id'], 'String');
       }
       if (data.hasOwnProperty('href')) {
         obj['href'] = ApiClient.convertToType(data['href'], 'String');
@@ -115,11 +111,6 @@
    * @member {Date} created_at
    */
   exports.prototype['created_at'] = undefined;
-  /**
-   * The id of the applicant the live photo belongs to.
-   * @member {String} applicant_id
-   */
-  exports.prototype['applicant_id'] = undefined;
   /**
    * The uri of this resource.
    * @member {String} href

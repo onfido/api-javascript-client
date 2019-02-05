@@ -1,6 +1,6 @@
 {
   "name": "onfido",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "The_Onfido_API_is_used_to_submit_check_requests_",
   "license": "Apache-2.0",
   "main": "src/index.js",

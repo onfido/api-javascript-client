@@ -25,32 +25,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Webhook'], factory);
+    define(['ApiClient', 'models/LiveVideo'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Webhook'));
+    module.exports = factory(require('../ApiClient'), require('./LiveVideo'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.WebhooksList = factory(root.Onfido.ApiClient, root.Onfido.Webhook);
+    root.Onfido.LiveVideosList = factory(root.Onfido.ApiClient, root.Onfido.LiveVideo);
   }
-}(this, function(ApiClient, Webhook) {
+}(this, function(ApiClient, LiveVideo) {
   'use strict';
 
 
 
 
   /**
-   * The WebhooksList model module.
-   * @module models/WebhooksList
+   * The LiveVideosList model module.
+   * @module models/LiveVideosList
    * @version 1.6.0
    */
 
   /**
-   * Constructs a new <code>WebhooksList</code>.
-   * @alias module:models/WebhooksList
+   * Constructs a new <code>LiveVideosList</code>.
+   * @alias module:models/LiveVideosList
    * @class
    */
   var exports = function() {
@@ -60,27 +60,27 @@
   };
 
   /**
-   * Constructs a <code>WebhooksList</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>LiveVideosList</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:models/WebhooksList} obj Optional instance to populate.
-   * @return {module:models/WebhooksList} The populated <code>WebhooksList</code> instance.
+   * @param {module:models/LiveVideosList} obj Optional instance to populate.
+   * @return {module:models/LiveVideosList} The populated <code>LiveVideosList</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('webhooks')) {
-        obj['webhooks'] = ApiClient.convertToType(data['webhooks'], [Webhook]);
+      if (data.hasOwnProperty('live_videos')) {
+        obj['live_videos'] = ApiClient.convertToType(data['live_videos'], [LiveVideo]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {Array.<module:models/Webhook>} webhooks
+   * @member {Array.<module:models/LiveVideo>} live_videos
    */
-  exports.prototype['webhooks'] = undefined;
+  exports.prototype['live_videos'] = undefined;
 
 
 

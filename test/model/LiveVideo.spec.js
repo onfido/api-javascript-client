@@ -39,7 +39,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Onfido.LivePhoto();
+    instance = new Onfido.LiveVideo();
   });
 
   var getProperty = function(object, getter, property) {
@@ -58,52 +58,52 @@
       object[property] = value;
   }
 
-  describe('LivePhoto', function() {
-    it('should create an instance of LivePhoto', function() {
-      // uncomment below and update the code to test LivePhoto
-      //var instane = new Onfido.LivePhoto();
-      //expect(instance).to.be.a(Onfido.LivePhoto);
+  describe('LiveVideo', function() {
+    it('should create an instance of LiveVideo', function() {
+      // uncomment below and update the code to test LiveVideo
+      //var instane = new Onfido.LiveVideo();
+      //expect(instance).to.be.a(Onfido.LiveVideo);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 
     it('should have the property createdAt (base name: "created_at")', function() {
       // uncomment below and update the code to test the property createdAt
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 
     it('should have the property href (base name: "href")', function() {
       // uncomment below and update the code to test the property href
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 
     it('should have the property downloadHref (base name: "download_href")', function() {
       // uncomment below and update the code to test the property downloadHref
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 
     it('should have the property fileName (base name: "file_name")', function() {
       // uncomment below and update the code to test the property fileName
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 
     it('should have the property fileSize (base name: "file_size")', function() {
       // uncomment below and update the code to test the property fileSize
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 
     it('should have the property fileType (base name: "file_type")', function() {
       // uncomment below and update the code to test the property fileType
-      //var instane = new Onfido.LivePhoto();
+      //var instane = new Onfido.LiveVideo();
       //expect(instance).to.be();
     });
 

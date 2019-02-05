@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'models/Address', 'models/Applicant', 'models/ApplicantsList', 'models/Check', 'models/CheckCreationRequest', 'models/ChecksList', 'models/Document', 'models/DocumentsList', 'models/Error', 'models/GenericAddress', 'models/GenericAddressesList', 'models/IdNumber', 'models/LivePhoto', 'models/LivePhotosList', 'models/Report', 'models/ReportType', 'models/ReportTypeGroup', 'models/ReportTypeGroupsList', 'models/ReportTypeOption', 'models/ReportsList', 'models/Webhook', 'models/WebhooksList', 'api/DefaultApi'], factory);
+    define(['ApiClient', 'models/Address', 'models/Applicant', 'models/ApplicantsList', 'models/Check', 'models/CheckCreationRequest', 'models/ChecksList', 'models/Document', 'models/DocumentsList', 'models/Error', 'models/GenericAddress', 'models/GenericAddressesList', 'models/IdNumber', 'models/LivePhoto', 'models/LivePhotosList', 'models/LiveVideo', 'models/LiveVideosList', 'models/Report', 'models/ReportType', 'models/ReportTypeGroup', 'models/ReportTypeGroupsList', 'models/ReportTypeOption', 'models/ReportsList', 'models/Webhook', 'models/WebhooksList', 'api/DefaultApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./models/Address'), require('./models/Applicant'), require('./models/ApplicantsList'), require('./models/Check'), require('./models/CheckCreationRequest'), require('./models/ChecksList'), require('./models/Document'), require('./models/DocumentsList'), require('./models/Error'), require('./models/GenericAddress'), require('./models/GenericAddressesList'), require('./models/IdNumber'), require('./models/LivePhoto'), require('./models/LivePhotosList'), require('./models/Report'), require('./models/ReportType'), require('./models/ReportTypeGroup'), require('./models/ReportTypeGroupsList'), require('./models/ReportTypeOption'), require('./models/ReportsList'), require('./models/Webhook'), require('./models/WebhooksList'), require('./api/DefaultApi'));
+    module.exports = factory(require('./ApiClient'), require('./models/Address'), require('./models/Applicant'), require('./models/ApplicantsList'), require('./models/Check'), require('./models/CheckCreationRequest'), require('./models/ChecksList'), require('./models/Document'), require('./models/DocumentsList'), require('./models/Error'), require('./models/GenericAddress'), require('./models/GenericAddressesList'), require('./models/IdNumber'), require('./models/LivePhoto'), require('./models/LivePhotosList'), require('./models/LiveVideo'), require('./models/LiveVideosList'), require('./models/Report'), require('./models/ReportType'), require('./models/ReportTypeGroup'), require('./models/ReportTypeGroupsList'), require('./models/ReportTypeOption'), require('./models/ReportsList'), require('./models/Webhook'), require('./models/WebhooksList'), require('./api/DefaultApi'));
   }
-}(function(ApiClient, Address, Applicant, ApplicantsList, Check, CheckCreationRequest, ChecksList, Document, DocumentsList, Error, GenericAddress, GenericAddressesList, IdNumber, LivePhoto, LivePhotosList, Report, ReportType, ReportTypeGroup, ReportTypeGroupsList, ReportTypeOption, ReportsList, Webhook, WebhooksList, DefaultApi) {
+}(function(ApiClient, Address, Applicant, ApplicantsList, Check, CheckCreationRequest, ChecksList, Document, DocumentsList, Error, GenericAddress, GenericAddressesList, IdNumber, LivePhoto, LivePhotosList, LiveVideo, LiveVideosList, Report, ReportType, ReportTypeGroup, ReportTypeGroupsList, ReportTypeOption, ReportsList, Webhook, WebhooksList, DefaultApi) {
   'use strict';
 
   /**
@@ -62,7 +62,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 1.5.0
+   * @version 1.6.0
    */
   var exports = {
     /**
@@ -140,6 +140,16 @@
      * @property {module:models/LivePhotosList}
      */
     LivePhotosList: LivePhotosList,
+    /**
+     * The LiveVideo model constructor.
+     * @property {module:models/LiveVideo}
+     */
+    LiveVideo: LiveVideo,
+    /**
+     * The LiveVideosList model constructor.
+     * @property {module:models/LiveVideosList}
+     */
+    LiveVideosList: LiveVideosList,
     /**
      * The Report model constructor.
      * @property {module:models/Report}

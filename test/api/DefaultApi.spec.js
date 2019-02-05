@@ -179,6 +179,16 @@
         done();
       });
     });
+    describe('findLiveVideo', function() {
+      it('should call findLiveVideo successfully', function(done) {
+        //uncomment below and update the code to test findLiveVideo
+        //instance.findLiveVideo(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findReport', function() {
       it('should call findReport successfully', function(done) {
         //uncomment below and update the code to test findReport
@@ -243,6 +253,16 @@
       it('should call listLivePhotos successfully', function(done) {
         //uncomment below and update the code to test listLivePhotos
         //instance.listLivePhotos(pet, function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listLiveVideos', function() {
+      it('should call listLiveVideos successfully', function(done) {
+        //uncomment below and update the code to test listLiveVideos
+        //instance.listLiveVideos(pet, function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

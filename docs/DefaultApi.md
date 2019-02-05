@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**findCheck**](DefaultApi.md#findCheck) | **GET** /applicants/{applicant_id}/checks/{check_id} | Retrieve a Check
 [**findDocument**](DefaultApi.md#findDocument) | **GET** /applicants/{applicant_id}/documents/{document_id} | A single document can be retrieved by calling this endpoint with the document’s unique identifier.
 [**findLivePhoto**](DefaultApi.md#findLivePhoto) | **GET** /live_photos/{live_photo_id} | Retrieve live photo
+[**findLiveVideo**](DefaultApi.md#findLiveVideo) | **GET** /live_videos/{live_video_id} | Retrieve live video
 [**findReport**](DefaultApi.md#findReport) | **GET** /checks/{check_id}/reports/{report_id} | A single report can be retrieved using this endpoint with the corresponding unique identifier.
 [**findReportTypeGroup**](DefaultApi.md#findReportTypeGroup) | **GET** /report_type_groups/{report_type_group_id} | Retrieve single report type group object
 [**findWebhook**](DefaultApi.md#findWebhook) | **GET** /webhooks/{webhook_id} | Retrieve a Webhook
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**listChecks**](DefaultApi.md#listChecks) | **GET** /applicants/{applicant_id}/checks | Retrieve Checks
 [**listDocuments**](DefaultApi.md#listDocuments) | **GET** /applicants/{applicant_id}/documents | List documents
 [**listLivePhotos**](DefaultApi.md#listLivePhotos) | **GET** /live_photos | List live photos
+[**listLiveVideos**](DefaultApi.md#listLiveVideos) | **GET** /live_videos | List live videos
 [**listReportTypeGroups**](DefaultApi.md#listReportTypeGroups) | **GET** /report_type_groups | Retrieve all report type groups
 [**listReports**](DefaultApi.md#listReports) | **GET** /checks/{check_id}/reports | All the reports belonging to a particular check can be listed from this endpoint.
 [**listWebhooks**](DefaultApi.md#listWebhooks) | **GET** /webhooks | List webhooks
@@ -546,6 +548,47 @@ Name | Type | Description  | Notes
 
 [**LivePhoto**](LivePhoto.md)
 
+<a name="findLiveVideo"></a>
+# **findLiveVideo**
+> LiveVideo findLiveVideo(liveVideoId)
+
+Retrieve live video
+
+### Example
+```javascript
+var Onfido = require('onfido');
+var defaultClient = Onfido.ApiClient.default;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'token=' + 'YOUR API KEY';
+Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new Onfido.DefaultApi();
+
+var liveVideoId = "liveVideoId_example"; // String | The live video’s unique identifier.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error.response.body);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.findLiveVideo(liveVideoId, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **liveVideoId** | **String**| The live video’s unique identifier. | 
+
+### Return type
+
+[**LiveVideo**](LiveVideo.md)
+
 <a name="findReport"></a>
 # **findReport**
 > Report findReport(checkId, reportId)
@@ -826,7 +869,7 @@ Token.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
 
-var applicantId = "applicantId_example"; // String | The id of the applicant the live photos belongs to.
+var applicantId = "applicantId_example"; // String | The id of the applicant the live photos belong to.
 
 
 var callback = function(error, data, response) {
@@ -843,11 +886,52 @@ apiInstance.listLivePhotos(applicantId, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**| The id of the applicant the live photos belongs to. | 
+ **applicantId** | **String**| The id of the applicant the live photos belong to. | 
 
 ### Return type
 
 [**LivePhotosList**](LivePhotosList.md)
+
+<a name="listLiveVideos"></a>
+# **listLiveVideos**
+> LiveVideosList listLiveVideos(applicantId)
+
+List live videos
+
+### Example
+```javascript
+var Onfido = require('onfido');
+var defaultClient = Onfido.ApiClient.default;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'token=' + 'YOUR API KEY';
+Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new Onfido.DefaultApi();
+
+var applicantId = "applicantId_example"; // String | The id of the applicant the live videos belong to.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error.response.body);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.listLiveVideos(applicantId, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicantId** | **String**| The id of the applicant the live videos belong to. | 
+
+### Return type
+
+[**LiveVideosList**](LiveVideosList.md)
 
 <a name="listReportTypeGroups"></a>
 # **listReportTypeGroups**
