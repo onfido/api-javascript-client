@@ -16,7 +16,6 @@ Method | HTTP request | Description
 [**findCheck**](DefaultApi.md#findCheck) | **GET** /applicants/{applicant_id}/checks/{check_id} | Retrieve a Check
 [**findDocument**](DefaultApi.md#findDocument) | **GET** /applicants/{applicant_id}/documents/{document_id} | A single document can be retrieved by calling this endpoint with the document’s unique identifier.
 [**findLivePhoto**](DefaultApi.md#findLivePhoto) | **GET** /live_photos/{live_photo_id} | Retrieve live photo
-[**findLiveVideo**](DefaultApi.md#findLiveVideo) | **GET** /live_videos/{live_video_id} | Retrieve live video
 [**findReport**](DefaultApi.md#findReport) | **GET** /checks/{check_id}/reports/{report_id} | A single report can be retrieved using this endpoint with the corresponding unique identifier.
 [**findReportTypeGroup**](DefaultApi.md#findReportTypeGroup) | **GET** /report_type_groups/{report_type_group_id} | Retrieve single report type group object
 [**findWebhook**](DefaultApi.md#findWebhook) | **GET** /webhooks/{webhook_id} | Retrieve a Webhook
@@ -24,7 +23,6 @@ Method | HTTP request | Description
 [**listChecks**](DefaultApi.md#listChecks) | **GET** /applicants/{applicant_id}/checks | Retrieve Checks
 [**listDocuments**](DefaultApi.md#listDocuments) | **GET** /applicants/{applicant_id}/documents | List documents
 [**listLivePhotos**](DefaultApi.md#listLivePhotos) | **GET** /live_photos | List live photos
-[**listLiveVideos**](DefaultApi.md#listLiveVideos) | **GET** /live_videos | List live videos
 [**listReportTypeGroups**](DefaultApi.md#listReportTypeGroups) | **GET** /report_type_groups | Retrieve all report type groups
 [**listReports**](DefaultApi.md#listReports) | **GET** /checks/{check_id}/reports | All the reports belonging to a particular check can be listed from this endpoint.
 [**listWebhooks**](DefaultApi.md#listWebhooks) | **GET** /webhooks | List webhooks
@@ -38,265 +36,277 @@ Method | HTTP request | Description
 
 <a name="cancelReport"></a>
 # **cancelReport**
-> cancelReport(checkId, reportId)
+> cancelReport(check_id, report_id)
 
 This endpoint is for cancelling individual paused reports.
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var check_id = "check_id_example"; // String | 
+var report_id = "report_id_example"; // String | 
+apiInstance.cancelReport(check_id, report_id).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
 
-var checkId = "checkId_example"; // String | 
-
-var reportId = "reportId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.cancelReport(checkId, reportId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkId** | **String**|  | 
- **reportId** | **String**|  | 
+ **check_id** | **String**|  | 
+ **report_id** | **String**|  | 
 
 ### Return type
 
 null (empty response body)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="createApplicant"></a>
 # **createApplicant**
-> Applicant createApplicant(opts)
+> Applicant createApplicant(Applicant)
 
 Create Applicant
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var Applicant = new Onfido.Applicant(); // Applicant | 
+apiInstance.createApplicant(Applicant).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var opts = { 
-  'data': new Onfido.Applicant() // Applicant | 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.createApplicant(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Applicant**](Applicant.md)|  | [optional] 
+ **Applicant** | [**Applicant**](Applicant.md)|  | 
 
 ### Return type
 
 [**Applicant**](Applicant.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="createCheck"></a>
 # **createCheck**
-> Check createCheck(applicantId, opts)
+> Check createCheck(applicant_id, Check)
 
 Create a check
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+var Check = new Onfido.Check(); // Check | 
+apiInstance.createCheck(applicant_id, Check).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-var opts = { 
-  'data': new Onfido.CheckCreationRequest() // CheckCreationRequest | 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.createCheck(applicantId, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **data** | [**CheckCreationRequest**](CheckCreationRequest.md)|  | [optional] 
+ **applicant_id** | **String**|  | 
+ **Check** | [**Check**](Check.md)|  | 
 
 ### Return type
 
 [**Check**](Check.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="createWebhook"></a>
 # **createWebhook**
-> Webhook createWebhook(opts)
+> Webhook createWebhook(Webhook)
 
 Create a webhook
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var Webhook = new Onfido.Webhook(); // Webhook | 
+apiInstance.createWebhook(Webhook).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var opts = { 
-  'data': new Onfido.Webhook() // Webhook | 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.createWebhook(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**Webhook**](Webhook.md)|  | [optional] 
+ **Webhook** | [**Webhook**](Webhook.md)|  | 
 
 ### Return type
 
 [**Webhook**](Webhook.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="destroyApplicant"></a>
 # **destroyApplicant**
-> destroyApplicant(applicantId)
+> destroyApplicant(applicant_id)
 
 Delete Applicant
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+apiInstance.destroyApplicant(applicant_id).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.destroyApplicant(applicantId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
+ **applicant_id** | **String**|  | 
 
 ### Return type
 
 null (empty response body)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="downloadDocument"></a>
 # **downloadDocument**
-> File downloadDocument(applicantId, documentId)
+> File downloadDocument(applicant_id, document_id)
 
 Download a documents raw data
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+var document_id = "document_id_example"; // String | 
+apiInstance.downloadDocument(applicant_id, document_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-var documentId = "documentId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.downloadDocument(applicantId, documentId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **documentId** | **String**|  | 
+ **applicant_id** | **String**|  | 
+ **document_id** | **String**|  | 
 
 ### Return type
 
 **File**
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*, application/json
+
 <a name="downloadLivePhoto"></a>
 # **downloadLivePhoto**
-> File downloadLivePhoto(livePhotoId)
+> File downloadLivePhoto(live_photo_id)
 
 Download live photo
 
@@ -305,37 +315,40 @@ Live photos are downloaded using this endpoint.
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var live_photo_id = "live_photo_id_example"; // String | The live photo’s unique identifier.
+apiInstance.downloadLivePhoto(live_photo_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var livePhotoId = "livePhotoId_example"; // String | The live photo’s unique identifier.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.downloadLivePhoto(livePhotoId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **livePhotoId** | **String**| The live photo’s unique identifier. | 
+ **live_photo_id** | **String**| The live photo’s unique identifier. | 
 
 ### Return type
 
 **File**
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*, application/json
 
 <a name="findAddresses"></a>
 # **findAddresses**
@@ -346,26 +359,20 @@ Search for addresses by postcode
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
-
 var postcode = "postcode_example"; // String | 
+apiInstance.findAddresses(postcode).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findAddresses(postcode, callback);
 ```
 
 ### Parameters
@@ -378,342 +385,328 @@ Name | Type | Description  | Notes
 
 [**GenericAddressesList**](GenericAddressesList.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="findApplicant"></a>
 # **findApplicant**
-> Applicant findApplicant(applicantId)
+> Applicant findApplicant(applicant_id)
 
 Retrieve Applicant
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+apiInstance.findApplicant(applicant_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findApplicant(applicantId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
+ **applicant_id** | **String**|  | 
 
 ### Return type
 
 [**Applicant**](Applicant.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="findCheck"></a>
 # **findCheck**
-> Check findCheck(applicantId, checkId)
+> CheckWithReportIds findCheck(applicant_id, check_id)
 
 Retrieve a Check
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+var check_id = "check_id_example"; // String | 
+apiInstance.findCheck(applicant_id, check_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-var checkId = "checkId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findCheck(applicantId, checkId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **checkId** | **String**|  | 
+ **applicant_id** | **String**|  | 
+ **check_id** | **String**|  | 
 
 ### Return type
 
-[**Check**](Check.md)
+[**CheckWithReportIds**](CheckWithReportIds.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="findDocument"></a>
 # **findDocument**
-> Document findDocument(applicantId, documentId)
+> Document findDocument(applicant_id, document_id)
 
 A single document can be retrieved by calling this endpoint with the document’s unique identifier.
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+var document_id = "document_id_example"; // String | 
+apiInstance.findDocument(applicant_id, document_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-var documentId = "documentId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findDocument(applicantId, documentId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **documentId** | **String**|  | 
+ **applicant_id** | **String**|  | 
+ **document_id** | **String**|  | 
 
 ### Return type
 
 [**Document**](Document.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="findLivePhoto"></a>
 # **findLivePhoto**
-> LivePhoto findLivePhoto(livePhotoId)
+> LivePhoto findLivePhoto(live_photo_id)
 
 Retrieve live photo
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var live_photo_id = "live_photo_id_example"; // String | The live photo’s unique identifier.
+apiInstance.findLivePhoto(live_photo_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var livePhotoId = "livePhotoId_example"; // String | The live photo’s unique identifier.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findLivePhoto(livePhotoId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **livePhotoId** | **String**| The live photo’s unique identifier. | 
+ **live_photo_id** | **String**| The live photo’s unique identifier. | 
 
 ### Return type
 
 [**LivePhoto**](LivePhoto.md)
 
-<a name="findLiveVideo"></a>
-# **findLiveVideo**
-> LiveVideo findLiveVideo(liveVideoId)
+### Authorization
 
-Retrieve live video
+[Token](../README.md#Token)
 
-### Example
-```javascript
-var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
+### HTTP request headers
 
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
-
-var apiInstance = new Onfido.DefaultApi();
-
-var liveVideoId = "liveVideoId_example"; // String | The live video’s unique identifier.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findLiveVideo(liveVideoId, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **liveVideoId** | **String**| The live video’s unique identifier. | 
-
-### Return type
-
-[**LiveVideo**](LiveVideo.md)
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="findReport"></a>
 # **findReport**
-> Report findReport(checkId, reportId)
+> Report findReport(check_id, report_id)
 
 A single report can be retrieved using this endpoint with the corresponding unique identifier.
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var check_id = "check_id_example"; // String | 
+var report_id = "report_id_example"; // String | 
+apiInstance.findReport(check_id, report_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var checkId = "checkId_example"; // String | 
-
-var reportId = "reportId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findReport(checkId, reportId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkId** | **String**|  | 
- **reportId** | **String**|  | 
+ **check_id** | **String**|  | 
+ **report_id** | **String**|  | 
 
 ### Return type
 
 [**Report**](Report.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="findReportTypeGroup"></a>
 # **findReportTypeGroup**
-> ReportTypeGroup findReportTypeGroup(reportTypeGroupId)
+> ReportTypeGroup findReportTypeGroup(report_type_group_id)
 
 Retrieve single report type group object
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var report_type_group_id = "report_type_group_id_example"; // String | 
+apiInstance.findReportTypeGroup(report_type_group_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var reportTypeGroupId = "reportTypeGroupId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findReportTypeGroup(reportTypeGroupId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportTypeGroupId** | **String**|  | 
+ **report_type_group_id** | **String**|  | 
 
 ### Return type
 
 [**ReportTypeGroup**](ReportTypeGroup.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="findWebhook"></a>
 # **findWebhook**
-> Webhook findWebhook(webhookId)
+> Webhook findWebhook(webhook_id)
 
 Retrieve a Webhook
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var webhook_id = "webhook_id_example"; // String | 
+apiInstance.findWebhook(webhook_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var webhookId = "webhookId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.findWebhook(webhookId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookId** | **String**|  | 
+ **webhook_id** | **String**|  | 
 
 ### Return type
 
 [**Webhook**](Webhook.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="listApplicants"></a>
 # **listApplicants**
@@ -724,93 +717,100 @@ List Applicants
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
-
-var opts = { 
-  'page': 56, // Integer | The page to return. Defaults to the first page if omitted. The first page is `page=1`
-  'perPage': 56, // Integer | The number of objects per page. Defaults to 20 if omitted.
-  'includeDeleted': true // Boolean | Whether to also include applicants scheduled for deletion. Defaults to false if omitted.
+var opts = {
+  'page': 1, // Number | The page to return. The first page is `page=1`
+  'per_page': 20, // Number | The number of objects per page.
+  'include_deleted': false // Boolean | Whether to also include applicants scheduled for deletion.
 };
+apiInstance.listApplicants(opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listApplicants(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | **Integer**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
- **perPage** | **Integer**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
- **includeDeleted** | **Boolean**| Whether to also include applicants scheduled for deletion. Defaults to false if omitted. | [optional] 
+ **page** | **Number**| The page to return. The first page is &#x60;page&#x3D;1&#x60; | [optional] [default to 1]
+ **per_page** | **Number**| The number of objects per page. | [optional] [default to 20]
+ **include_deleted** | **Boolean**| Whether to also include applicants scheduled for deletion. | [optional] [default to false]
 
 ### Return type
 
 [**ApplicantsList**](ApplicantsList.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listChecks"></a>
 # **listChecks**
-> ChecksList listChecks(applicantId, opts)
+> ChecksList listChecks(applicant_id, opts)
 
 Retrieve Checks
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
-
-var applicantId = "applicantId_example"; // String | 
-
-var opts = { 
-  'page': 56, // Integer | The page to return. Defaults to the first page if omitted. The first page is `page=1`
-  'perPage': 56 // Integer | The number of objects per page. Defaults to 20 if omitted.
+var applicant_id = "applicant_id_example"; // String | 
+var opts = {
+  'page': 1, // Number | The page to return. The first page is `page=1`.
+  'per_page': 20 // Number | The number of objects per page.
 };
+apiInstance.listChecks(applicant_id, opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listChecks(applicantId, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **page** | **Integer**| The page to return. Defaults to the first page if omitted. The first page is &#x60;page&#x3D;1&#x60; | [optional] 
- **perPage** | **Integer**| The number of objects per page. Defaults to 20 if omitted. | [optional] 
+ **applicant_id** | **String**|  | 
+ **page** | **Number**| The page to return. The first page is &#x60;page&#x3D;1&#x60;. | [optional] [default to 1]
+ **per_page** | **Number**| The number of objects per page. | [optional] [default to 20]
 
 ### Return type
 
 [**ChecksList**](ChecksList.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listDocuments"></a>
 # **listDocuments**
-> DocumentsList listDocuments(applicantId)
+> DocumentsList listDocuments(applicant_id)
 
 List documents
 
@@ -819,119 +819,84 @@ All documents belonging to an applicant can be listed from this endpoint
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+apiInstance.listDocuments(applicant_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listDocuments(applicantId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
+ **applicant_id** | **String**|  | 
 
 ### Return type
 
 [**DocumentsList**](DocumentsList.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listLivePhotos"></a>
 # **listLivePhotos**
-> LivePhotosList listLivePhotos(applicantId)
+> LivePhotosList listLivePhotos(applicant_id)
 
 List live photos
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | The id of the applicant the live photos belong to.
+apiInstance.listLivePhotos(applicant_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | The id of the applicant the live photos belong to.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listLivePhotos(applicantId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**| The id of the applicant the live photos belong to. | 
+ **applicant_id** | **String**| The id of the applicant the live photos belong to. | 
 
 ### Return type
 
 [**LivePhotosList**](LivePhotosList.md)
 
-<a name="listLiveVideos"></a>
-# **listLiveVideos**
-> LiveVideosList listLiveVideos(applicantId)
+### Authorization
 
-List live videos
+[Token](../README.md#Token)
 
-### Example
-```javascript
-var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
+### HTTP request headers
 
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
-
-var apiInstance = new Onfido.DefaultApi();
-
-var applicantId = "applicantId_example"; // String | The id of the applicant the live videos belong to.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listLiveVideos(applicantId, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicantId** | **String**| The id of the applicant the live videos belong to. | 
-
-### Return type
-
-[**LiveVideosList**](LiveVideosList.md)
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="listReportTypeGroups"></a>
 # **listReportTypeGroups**
@@ -942,23 +907,19 @@ Retrieve all report type groups
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+apiInstance.listReportTypeGroups().then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listReportTypeGroups(callback);
 ```
 
 ### Parameters
@@ -968,46 +929,58 @@ This endpoint does not need any parameter.
 
 [**ReportTypeGroupsList**](ReportTypeGroupsList.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listReports"></a>
 # **listReports**
-> ReportsList listReports(checkId)
+> ReportsList listReports(check_id)
 
 All the reports belonging to a particular check can be listed from this endpoint.
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var check_id = "check_id_example"; // String | 
+apiInstance.listReports(check_id).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var checkId = "checkId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listReports(checkId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkId** | **String**|  | 
+ **check_id** | **String**|  | 
 
 ### Return type
 
 [**ReportsList**](ReportsList.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="listWebhooks"></a>
 # **listWebhooks**
@@ -1018,23 +991,19 @@ List webhooks
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+apiInstance.listWebhooks().then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.listWebhooks(callback);
 ```
 
 ### Parameters
@@ -1044,180 +1013,200 @@ This endpoint does not need any parameter.
 
 [**WebhooksList**](WebhooksList.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="restoreApplicant"></a>
 # **restoreApplicant**
-> restoreApplicant(applicantId)
+> restoreApplicant(applicant_id)
 
 Restore Applicant
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+apiInstance.restoreApplicant(applicant_id).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.restoreApplicant(applicantId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
+ **applicant_id** | **String**|  | 
 
 ### Return type
 
 null (empty response body)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="resumeCheck"></a>
 # **resumeCheck**
-> resumeCheck(checkId)
+> resumeCheck(check_id)
 
 Resume a Check
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var check_id = "check_id_example"; // String | 
+apiInstance.resumeCheck(check_id).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
 
-var checkId = "checkId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.resumeCheck(checkId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkId** | **String**|  | 
+ **check_id** | **String**|  | 
 
 ### Return type
 
 null (empty response body)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="resumeReport"></a>
 # **resumeReport**
-> resumeReport(checkId, reportId)
+> resumeReport(check_id, report_id)
 
 This endpoint is for resuming individual paused reports.
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var check_id = "check_id_example"; // String | 
+var report_id = "report_id_example"; // String | 
+apiInstance.resumeReport(check_id, report_id).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
 
-var checkId = "checkId_example"; // String | 
-
-var reportId = "reportId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.resumeReport(checkId, reportId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **checkId** | **String**|  | 
- **reportId** | **String**|  | 
+ **check_id** | **String**|  | 
+ **report_id** | **String**|  | 
 
 ### Return type
 
 null (empty response body)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="updateApplicant"></a>
 # **updateApplicant**
-> Applicant updateApplicant(applicantId, opts)
+> Applicant updateApplicant(applicant_id, Applicant)
 
 Update Applicant
+
+Allows updating of an applicant’s information before any checks are created. - Partial updates - Addresses and ID numbers present will replace existing ones - Same applicant validations to create applicant 
 
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
+var applicant_id = "applicant_id_example"; // String | 
+var Applicant = new Onfido.Applicant(); // Applicant | 
+apiInstance.updateApplicant(applicant_id, Applicant).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var applicantId = "applicantId_example"; // String | 
-
-var opts = { 
-  'data': new Onfido.Applicant() // Applicant | 
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.updateApplicant(applicantId, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **data** | [**Applicant**](Applicant.md)|  | [optional] 
+ **applicant_id** | **String**|  | 
+ **Applicant** | [**Applicant**](Applicant.md)|  | 
 
 ### Return type
 
 [**Applicant**](Applicant.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="uploadDocument"></a>
 # **uploadDocument**
-> Document uploadDocument(applicantId, type, opts)
+> Document uploadDocument(applicant_id, type, file, opts)
 
 Upload a document
 
@@ -1226,50 +1215,52 @@ Documents are uploaded using this endpoint. Along with the file upload the relev
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
-
-var applicantId = "applicantId_example"; // String | 
-
-var type = "type_example"; // String | 
-
-var opts = { 
-  'side': "side_example", // String | 
-  'file': "/path/to/file.txt" // File | 
+var applicant_id = "applicant_id_example"; // String | 
+var type = "type_example"; // String | The type of document.
+var file = "/path/to/file"; // File | The file to be uploaded.
+var opts = {
+  'side': "side_example" // String | Either the `front` or `back` of the document.
 };
+apiInstance.uploadDocument(applicant_id, type, file, opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.uploadDocument(applicantId, type, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**|  | 
- **type** | **String**|  | 
- **side** | **String**|  | [optional] 
- **file** | **File**|  | [optional] 
+ **applicant_id** | **String**|  | 
+ **type** | **String**| The type of document. | 
+ **file** | **File**| The file to be uploaded. | 
+ **side** | **String**| Either the &#x60;front&#x60; or &#x60;back&#x60; of the document. | [optional] 
 
 ### Return type
 
 [**Document**](Document.md)
 
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
 <a name="uploadLivePhoto"></a>
 # **uploadLivePhoto**
-> LivePhoto uploadLivePhoto(applicantId, file, opts)
+> LivePhoto uploadLivePhoto(applicant_id, file, opts)
 
 Upload live photo
 
@@ -1278,42 +1269,44 @@ You can upload live photos to this endpoint. Like document upload, files must be
 ### Example
 ```javascript
 var Onfido = require('onfido');
-var defaultClient = Onfido.ApiClient.default;
-
+var defaultClient = Onfido.ApiClient.instance;
 // Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'token=' + 'YOUR API KEY';
-Token.apiKeyPrefix = 'Token';
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
 
 var apiInstance = new Onfido.DefaultApi();
-
-var applicantId = "applicantId_example"; // String | The applicant_id to associate the live photo to.
-
-var file = "/path/to/file.txt"; // File | The file to be uploaded.
-
-var opts = { 
-  'advancedValidation': true // Boolean | Validates that the live photo contains exactly one face.
+var applicant_id = "applicant_id_example"; // String | 
+var file = "/path/to/file"; // File | The file to be uploaded.
+var opts = {
+  'advanced_validation': true // Boolean | Validates that the live photo contains exactly one face.
 };
+apiInstance.uploadLivePhoto(applicant_id, file, opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error.response.body);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.uploadLivePhoto(applicantId, file, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicantId** | **String**| The applicant_id to associate the live photo to. | 
+ **applicant_id** | **String**|  | 
  **file** | **File**| The file to be uploaded. | 
- **advancedValidation** | **Boolean**| Validates that the live photo contains exactly one face. | [optional] 
+ **advanced_validation** | **Boolean**| Validates that the live photo contains exactly one face. | [optional] [default to true]
 
 ### Return type
 
 [**LivePhoto**](LivePhoto.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 

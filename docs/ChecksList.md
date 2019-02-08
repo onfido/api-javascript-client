@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**checks** | [**[Check]**](Check.md) |  | [optional] 
+**checks** | [**[CheckWithReportIds]**](CheckWithReportIds.md) |  | [optional] 
 
 

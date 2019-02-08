@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reportTypeGroups** | [**[ReportTypeGroup]**](ReportTypeGroup.md) |  | [optional] 
+**report_type_groups** | [**[ReportTypeGroup]**](ReportTypeGroup.md) |  | [optional] 
 
 

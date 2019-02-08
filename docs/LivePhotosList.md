@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**livePhotos** | [**[LivePhoto]**](LivePhoto.md) |  | [optional] 
+**live_photos** | [**[LivePhoto]**](LivePhoto.md) |  | [optional] 
 
 
