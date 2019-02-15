@@ -35,7 +35,7 @@
   /**
    * The ReportDocument model module.
    * @module model/ReportDocument
-   * @version 2.0.0
+   * @version 2.0.1
    */
 
   /**

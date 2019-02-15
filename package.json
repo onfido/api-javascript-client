@@ -1,8 +1,8 @@
 {
   "name": "onfido",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Client library for the Onfido API.",
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
