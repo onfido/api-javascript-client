@@ -35,7 +35,7 @@
   /**
    * The CheckCommon model module.
    * @module model/CheckCommon
-   * @version 2.0.1
+   * @version 2.1.0
    */
 
   /**

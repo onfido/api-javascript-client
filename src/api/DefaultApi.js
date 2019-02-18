@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Applicant', 'model/ApplicantsList', 'model/Check', 'model/CheckWithReportIds', 'model/ChecksList', 'model/Document', 'model/DocumentsList', 'model/Error', 'model/GenericAddressesList', 'model/LivePhoto', 'model/LivePhotosList', 'model/Report', 'model/ReportTypeGroup', 'model/ReportTypeGroupsList', 'model/ReportsList', 'model/Webhook', 'model/WebhooksList'], factory);
+    define(['ApiClient', 'model/Applicant', 'model/ApplicantsList', 'model/Check', 'model/CheckWithReportIds', 'model/ChecksList', 'model/Document', 'model/DocumentsList', 'model/Error', 'model/GenericAddressesList', 'model/LivePhoto', 'model/LivePhotosList', 'model/LiveVideo', 'model/LiveVideosList', 'model/Report', 'model/ReportTypeGroup', 'model/ReportTypeGroupsList', 'model/ReportsList', 'model/Webhook', 'model/WebhooksList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Applicant'), require('../model/ApplicantsList'), require('../model/Check'), require('../model/CheckWithReportIds'), require('../model/ChecksList'), require('../model/Document'), require('../model/DocumentsList'), require('../model/Error'), require('../model/GenericAddressesList'), require('../model/LivePhoto'), require('../model/LivePhotosList'), require('../model/Report'), require('../model/ReportTypeGroup'), require('../model/ReportTypeGroupsList'), require('../model/ReportsList'), require('../model/Webhook'), require('../model/WebhooksList'));
+    module.exports = factory(require('../ApiClient'), require('../model/Applicant'), require('../model/ApplicantsList'), require('../model/Check'), require('../model/CheckWithReportIds'), require('../model/ChecksList'), require('../model/Document'), require('../model/DocumentsList'), require('../model/Error'), require('../model/GenericAddressesList'), require('../model/LivePhoto'), require('../model/LivePhotosList'), require('../model/LiveVideo'), require('../model/LiveVideosList'), require('../model/Report'), require('../model/ReportTypeGroup'), require('../model/ReportTypeGroupsList'), require('../model/ReportsList'), require('../model/Webhook'), require('../model/WebhooksList'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Applicant, root.Onfido.ApplicantsList, root.Onfido.Check, root.Onfido.CheckWithReportIds, root.Onfido.ChecksList, root.Onfido.Document, root.Onfido.DocumentsList, root.Onfido.Error, root.Onfido.GenericAddressesList, root.Onfido.LivePhoto, root.Onfido.LivePhotosList, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.Webhook, root.Onfido.WebhooksList);
+    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Applicant, root.Onfido.ApplicantsList, root.Onfido.Check, root.Onfido.CheckWithReportIds, root.Onfido.ChecksList, root.Onfido.Document, root.Onfido.DocumentsList, root.Onfido.Error, root.Onfido.GenericAddressesList, root.Onfido.LivePhoto, root.Onfido.LivePhotosList, root.Onfido.LiveVideo, root.Onfido.LiveVideosList, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.Webhook, root.Onfido.WebhooksList);
   }
-}(this, function(ApiClient, Applicant, ApplicantsList, Check, CheckWithReportIds, ChecksList, Document, DocumentsList, Error, GenericAddressesList, LivePhoto, LivePhotosList, Report, ReportTypeGroup, ReportTypeGroupsList, ReportsList, Webhook, WebhooksList) {
+}(this, function(ApiClient, Applicant, ApplicantsList, Check, CheckWithReportIds, ChecksList, Document, DocumentsList, Error, GenericAddressesList, LivePhoto, LivePhotosList, LiveVideo, LiveVideosList, Report, ReportTypeGroup, ReportTypeGroupsList, ReportsList, Webhook, WebhooksList) {
   'use strict';
 
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 2.0.1
+   * @version 2.1.0
    */
 
   /**
@@ -429,6 +429,59 @@
 
 
     /**
+     * Download live video
+     * Live videos are downloaded using this endpoint.
+     * @param {String} live_video_id The live video’s unique identifier.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link File} and HTTP response
+     */
+    this.downloadLiveVideoWithHttpInfo = function(live_video_id) {
+      var postBody = null;
+
+      // verify the required parameter 'live_video_id' is set
+      if (live_video_id === undefined || live_video_id === null) {
+        throw new Error("Missing the required parameter 'live_video_id' when calling downloadLiveVideo");
+      }
+
+
+      var pathParams = {
+        'live_video_id': live_video_id
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['*/*', 'application/json'];
+      var returnType = File;
+
+      return this.apiClient.callApi(
+        '/live_videos/{live_video_id}/download', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Download live video
+     * Live videos are downloaded using this endpoint.
+     * @param {String} live_video_id The live video’s unique identifier.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link File}
+     */
+    this.downloadLiveVideo = function(live_video_id) {
+      return this.downloadLiveVideoWithHttpInfo(live_video_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Search for addresses by postcode
      * @param {String} postcode 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GenericAddressesList} and HTTP response
@@ -693,6 +746,57 @@
      */
     this.findLivePhoto = function(live_photo_id) {
       return this.findLivePhotoWithHttpInfo(live_photo_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Retrieve live video
+     * @param {String} live_video_id The live video’s unique identifier.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LiveVideo} and HTTP response
+     */
+    this.findLiveVideoWithHttpInfo = function(live_video_id) {
+      var postBody = null;
+
+      // verify the required parameter 'live_video_id' is set
+      if (live_video_id === undefined || live_video_id === null) {
+        throw new Error("Missing the required parameter 'live_video_id' when calling findLiveVideo");
+      }
+
+
+      var pathParams = {
+        'live_video_id': live_video_id
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = LiveVideo;
+
+      return this.apiClient.callApi(
+        '/live_videos/{live_video_id}', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Retrieve live video
+     * @param {String} live_video_id The live video’s unique identifier.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LiveVideo}
+     */
+    this.findLiveVideo = function(live_video_id) {
+      return this.findLiveVideoWithHttpInfo(live_video_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1073,6 +1177,57 @@
      */
     this.listLivePhotos = function(applicant_id) {
       return this.listLivePhotosWithHttpInfo(applicant_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * List live videos
+     * @param {String} applicant_id The id of the applicant the live videos belong to.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/LiveVideosList} and HTTP response
+     */
+    this.listLiveVideosWithHttpInfo = function(applicant_id) {
+      var postBody = null;
+
+      // verify the required parameter 'applicant_id' is set
+      if (applicant_id === undefined || applicant_id === null) {
+        throw new Error("Missing the required parameter 'applicant_id' when calling listLiveVideos");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'applicant_id': applicant_id,
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = LiveVideosList;
+
+      return this.apiClient.callApi(
+        '/live_videos', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * List live videos
+     * @param {String} applicant_id The id of the applicant the live videos belong to.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/LiveVideosList}
+     */
+    this.listLiveVideos = function(applicant_id) {
+      return this.listLiveVideosWithHttpInfo(applicant_id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

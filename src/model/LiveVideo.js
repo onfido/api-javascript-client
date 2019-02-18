@@ -25,7 +25,7 @@
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.LivePhoto = factory(root.Onfido.ApiClient);
+    root.Onfido.LiveVideo = factory(root.Onfido.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -33,14 +33,14 @@
 
 
   /**
-   * The LivePhoto model module.
-   * @module model/LivePhoto
+   * The LiveVideo model module.
+   * @module model/LiveVideo
    * @version 2.1.0
    */
 
   /**
-   * Constructs a new <code>LivePhoto</code>.
-   * @alias module:model/LivePhoto
+   * Constructs a new <code>LiveVideo</code>.
+   * @alias module:model/LiveVideo
    * @class
    */
   var exports = function() {
@@ -49,11 +49,11 @@
   };
 
   /**
-   * Constructs a <code>LivePhoto</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>LiveVideo</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/LivePhoto} obj Optional instance to populate.
-   * @return {module:model/LivePhoto} The populated <code>LivePhoto</code> instance.
+   * @param {module:model/LiveVideo} obj Optional instance to populate.
+   * @return {module:model/LiveVideo} The populated <code>LiveVideo</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -84,12 +84,12 @@
   }
 
   /**
-   * The unique identifier for the photo.
+   * The unique identifier for the video.
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * The date and time at which the photo was uploaded.
+   * The date and time at which the video was uploaded.
    * @member {Date} created_at
    */
   exports.prototype['created_at'] = undefined;
@@ -99,7 +99,7 @@
    */
   exports.prototype['href'] = undefined;
   /**
-   * The uri that can be used to download the photo.
+   * The uri that can be used to download the video.
    * @member {String} download_href
    */
   exports.prototype['download_href'] = undefined;
@@ -121,7 +121,7 @@
 
 
   /**
-   * Returns The unique identifier for the photo.
+   * Returns The unique identifier for the video.
    * @return {String}
    */
   exports.prototype.getId = function() {
@@ -129,8 +129,8 @@
   }
 
   /**
-   * Sets The unique identifier for the photo.
-   * @param {String} id The unique identifier for the photo.
+   * Sets The unique identifier for the video.
+   * @param {String} id The unique identifier for the video.
    */
   exports.prototype.setId = function(id) {
     this['id'] = id;
@@ -138,7 +138,7 @@
 
 
   /**
-   * Returns The date and time at which the photo was uploaded.
+   * Returns The date and time at which the video was uploaded.
    * @return {Date}
    */
   exports.prototype.getCreatedAt = function() {
@@ -146,8 +146,8 @@
   }
 
   /**
-   * Sets The date and time at which the photo was uploaded.
-   * @param {Date} created_at The date and time at which the photo was uploaded.
+   * Sets The date and time at which the video was uploaded.
+   * @param {Date} created_at The date and time at which the video was uploaded.
    */
   exports.prototype.setCreatedAt = function(created_at) {
     this['created_at'] = created_at;
@@ -172,7 +172,7 @@
 
 
   /**
-   * Returns The uri that can be used to download the photo.
+   * Returns The uri that can be used to download the video.
    * @return {String}
    */
   exports.prototype.getDownloadHref = function() {
@@ -180,8 +180,8 @@
   }
 
   /**
-   * Sets The uri that can be used to download the photo.
-   * @param {String} download_href The uri that can be used to download the photo.
+   * Sets The uri that can be used to download the video.
+   * @param {String} download_href The uri that can be used to download the video.
    */
   exports.prototype.setDownloadHref = function(download_href) {
     this['download_href'] = download_href;

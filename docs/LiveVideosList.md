@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**liveVideos** | [**[LiveVideo]**](LiveVideo.md) |  | [optional] 
+**live_videos** | [**[LiveVideo]**](LiveVideo.md) |  | [optional] 
 
 

@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Address', 'model/Applicant', 'model/ApplicantsList', 'model/Check', 'model/CheckCommon', 'model/CheckWithReportIds', 'model/ChecksList', 'model/Document', 'model/DocumentsList', 'model/Error', 'model/GenericAddress', 'model/GenericAddressesList', 'model/IdNumber', 'model/LivePhoto', 'model/LivePhotosList', 'model/Report', 'model/ReportDocument', 'model/ReportOption', 'model/ReportType', 'model/ReportTypeGroup', 'model/ReportTypeGroupsList', 'model/ReportsList', 'model/Webhook', 'model/WebhooksList', 'api/DefaultApi'], factory);
+    define(['ApiClient', 'model/Address', 'model/Applicant', 'model/ApplicantsList', 'model/Check', 'model/CheckCommon', 'model/CheckWithReportIds', 'model/ChecksList', 'model/Document', 'model/DocumentsList', 'model/Error', 'model/GenericAddress', 'model/GenericAddressesList', 'model/IdNumber', 'model/LivePhoto', 'model/LivePhotosList', 'model/LiveVideo', 'model/LiveVideosList', 'model/Report', 'model/ReportDocument', 'model/ReportOption', 'model/ReportType', 'model/ReportTypeGroup', 'model/ReportTypeGroupsList', 'model/ReportsList', 'model/Webhook', 'model/WebhooksList', 'api/DefaultApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Applicant'), require('./model/ApplicantsList'), require('./model/Check'), require('./model/CheckCommon'), require('./model/CheckWithReportIds'), require('./model/ChecksList'), require('./model/Document'), require('./model/DocumentsList'), require('./model/Error'), require('./model/GenericAddress'), require('./model/GenericAddressesList'), require('./model/IdNumber'), require('./model/LivePhoto'), require('./model/LivePhotosList'), require('./model/Report'), require('./model/ReportDocument'), require('./model/ReportOption'), require('./model/ReportType'), require('./model/ReportTypeGroup'), require('./model/ReportTypeGroupsList'), require('./model/ReportsList'), require('./model/Webhook'), require('./model/WebhooksList'), require('./api/DefaultApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Address'), require('./model/Applicant'), require('./model/ApplicantsList'), require('./model/Check'), require('./model/CheckCommon'), require('./model/CheckWithReportIds'), require('./model/ChecksList'), require('./model/Document'), require('./model/DocumentsList'), require('./model/Error'), require('./model/GenericAddress'), require('./model/GenericAddressesList'), require('./model/IdNumber'), require('./model/LivePhoto'), require('./model/LivePhotosList'), require('./model/LiveVideo'), require('./model/LiveVideosList'), require('./model/Report'), require('./model/ReportDocument'), require('./model/ReportOption'), require('./model/ReportType'), require('./model/ReportTypeGroup'), require('./model/ReportTypeGroupsList'), require('./model/ReportsList'), require('./model/Webhook'), require('./model/WebhooksList'), require('./api/DefaultApi'));
   }
-}(function(ApiClient, Address, Applicant, ApplicantsList, Check, CheckCommon, CheckWithReportIds, ChecksList, Document, DocumentsList, Error, GenericAddress, GenericAddressesList, IdNumber, LivePhoto, LivePhotosList, Report, ReportDocument, ReportOption, ReportType, ReportTypeGroup, ReportTypeGroupsList, ReportsList, Webhook, WebhooksList, DefaultApi) {
+}(function(ApiClient, Address, Applicant, ApplicantsList, Check, CheckCommon, CheckWithReportIds, ChecksList, Document, DocumentsList, Error, GenericAddress, GenericAddressesList, IdNumber, LivePhoto, LivePhotosList, LiveVideo, LiveVideosList, Report, ReportDocument, ReportOption, ReportType, ReportTypeGroup, ReportTypeGroupsList, ReportsList, Webhook, WebhooksList, DefaultApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 2.0.1
+   * @version 2.1.0
    */
   var exports = {
     /**
@@ -136,6 +136,16 @@
      * @property {module:model/LivePhotosList}
      */
     LivePhotosList: LivePhotosList,
+    /**
+     * The LiveVideo model constructor.
+     * @property {module:model/LiveVideo}
+     */
+    LiveVideo: LiveVideo,
+    /**
+     * The LiveVideosList model constructor.
+     * @property {module:model/LiveVideosList}
+     */
+    LiveVideosList: LiveVideosList,
     /**
      * The Report model constructor.
      * @property {module:model/Report}

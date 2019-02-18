@@ -120,6 +120,16 @@
         done();
       });
     });
+    describe('downloadLiveVideo', function() {
+      it('should call downloadLiveVideo successfully', function(done) {
+        //uncomment below and update the code to test downloadLiveVideo
+        //instance.downloadLiveVideo(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('findAddresses', function() {
       it('should call findAddresses successfully', function(done) {
         //uncomment below and update the code to test findAddresses
@@ -164,6 +174,16 @@
       it('should call findLivePhoto successfully', function(done) {
         //uncomment below and update the code to test findLivePhoto
         //instance.findLivePhoto(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('findLiveVideo', function() {
+      it('should call findLiveVideo successfully', function(done) {
+        //uncomment below and update the code to test findLiveVideo
+        //instance.findLiveVideo(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -234,6 +254,16 @@
       it('should call listLivePhotos successfully', function(done) {
         //uncomment below and update the code to test listLivePhotos
         //instance.listLivePhotos(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('listLiveVideos', function() {
+      it('should call listLiveVideos successfully', function(done) {
+        //uncomment below and update the code to test listLiveVideos
+        //instance.listLiveVideos(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
