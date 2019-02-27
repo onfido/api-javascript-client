@@ -35,7 +35,7 @@
   /**
    * The ReportTypeGroupsList model module.
    * @module model/ReportTypeGroupsList
-   * @version 2.1.0
+   * @version 3.0.0
    */
 
   /**

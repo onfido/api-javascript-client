@@ -146,8 +146,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property async (base name: "async")', function() {
-      // uncomment below and update the code to test the property async
+    it('should have the property asynchronous (base name: "asynchronous")', function() {
+      // uncomment below and update the code to test the property asynchronous
       //var instance = new Onfido.Check();
       //expect(instance).to.be();
     });

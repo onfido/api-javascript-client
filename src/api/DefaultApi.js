@@ -33,7 +33,7 @@
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 2.1.0
+   * @version 3.0.0
    */
 
   /**

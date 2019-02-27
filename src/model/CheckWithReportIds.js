@@ -35,7 +35,7 @@
   /**
    * The CheckWithReportIds model module.
    * @module model/CheckWithReportIds
-   * @version 2.1.0
+   * @version 3.0.0
    */
 
   /**
@@ -106,8 +106,8 @@
       if (data.hasOwnProperty('brand_id')) {
         obj['brand_id'] = ApiClient.convertToType(data['brand_id'], 'String');
       }
-      if (data.hasOwnProperty('async')) {
-        obj['async'] = ApiClient.convertToType(data['async'], 'Boolean');
+      if (data.hasOwnProperty('asynchronous')) {
+        obj['asynchronous'] = ApiClient.convertToType(data['asynchronous'], 'Boolean');
       }
       if (data.hasOwnProperty('reports')) {
         obj['reports'] = ApiClient.convertToType(data['reports'], ['String']);
@@ -177,28 +177,25 @@
    */
   exports.prototype['tags'] = undefined;
   /**
-   * For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. 
+   * For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. Defaults to false. 
    * @member {Boolean} suppress_form_emails
-   * @default false
    */
-  exports.prototype['suppress_form_emails'] = false;
+  exports.prototype['suppress_form_emails'] = undefined;
   /**
-   * For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. 
+   * For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. Defaults to false. 
    * @member {Boolean} charge_applicant_for_check
-   * @default false
    */
-  exports.prototype['charge_applicant_for_check'] = false;
+  exports.prototype['charge_applicant_for_check'] = undefined;
   /**
    * ID of the brand under which the check should be conducted. Write-only.
    * @member {String} brand_id
    */
   exports.prototype['brand_id'] = undefined;
   /**
-   * If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. 
-   * @member {Boolean} async
-   * @default false
+   * If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. Defaults to false. 
+   * @member {Boolean} asynchronous
    */
-  exports.prototype['async'] = false;
+  exports.prototype['asynchronous'] = undefined;
   /**
    * An array of report ids.
    * @member {Array.<String>} reports
@@ -279,18 +276,16 @@ exports.prototype['report_type_groups'] = undefined;
 exports.prototype['tags'] = undefined;
 
   /**
-   * For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. 
+   * For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. Defaults to false. 
    * @member {Boolean} suppress_form_emails
-   * @default false
    */
-exports.prototype['suppress_form_emails'] = false;
+exports.prototype['suppress_form_emails'] = undefined;
 
   /**
-   * For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. 
+   * For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. Defaults to false. 
    * @member {Boolean} charge_applicant_for_check
-   * @default false
    */
-exports.prototype['charge_applicant_for_check'] = false;
+exports.prototype['charge_applicant_for_check'] = undefined;
 
   /**
    * ID of the brand under which the check should be conducted. Write-only.
@@ -299,11 +294,10 @@ exports.prototype['charge_applicant_for_check'] = false;
 exports.prototype['brand_id'] = undefined;
 
   /**
-   * If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. 
-   * @member {Boolean} async
-   * @default false
+   * If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. Defaults to false. 
+   * @member {Boolean} asynchronous
    */
-exports.prototype['async'] = false;
+exports.prototype['asynchronous'] = undefined;
 
 
   /**
@@ -511,7 +505,7 @@ exports.prototype['async'] = false;
 
 
   /**
-   * Returns For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. 
+   * Returns For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. Defaults to false. 
    * @return {Boolean}
    */
   exports.prototype.getSuppressFormEmails = function() {
@@ -519,8 +513,8 @@ exports.prototype['async'] = false;
   }
 
   /**
-   * Sets For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. 
-   * @param {Boolean} suppress_form_emails For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. 
+   * Sets For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. Defaults to false. 
+   * @param {Boolean} suppress_form_emails For standard checks, applicant form will not be automatically sent if this is set to true. You can manually send the form at any time after the check has been created, using the link found in the form_uri attribute of the check object. Write-only. Defaults to false. 
    */
   exports.prototype.setSuppressFormEmails = function(suppress_form_emails) {
     this['suppress_form_emails'] = suppress_form_emails;
@@ -528,7 +522,7 @@ exports.prototype['async'] = false;
 
 
   /**
-   * Returns For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. 
+   * Returns For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. Defaults to false. 
    * @return {Boolean}
    */
   exports.prototype.getChargeApplicantForCheck = function() {
@@ -536,8 +530,8 @@ exports.prototype['async'] = false;
   }
 
   /**
-   * Sets For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. 
-   * @param {Boolean} charge_applicant_for_check For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. 
+   * Sets For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. Defaults to false. 
+   * @param {Boolean} charge_applicant_for_check For standard checks, applicants will be presented with a mandatory payment screen before they can submit the applicant form, if this is set to true. In this case, your account will not be charged. Write-only. Defaults to false. 
    */
   exports.prototype.setChargeApplicantForCheck = function(charge_applicant_for_check) {
     this['charge_applicant_for_check'] = charge_applicant_for_check;
@@ -562,19 +556,19 @@ exports.prototype['async'] = false;
 
 
   /**
-   * Returns If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. 
+   * Returns If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. Defaults to false. 
    * @return {Boolean}
    */
-  exports.prototype.getAsync = function() {
-    return this['async'];
+  exports.prototype.getAsynchronous = function() {
+    return this['asynchronous'];
   }
 
   /**
-   * Sets If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. 
-   * @param {Boolean} async If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. 
+   * Sets If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. Defaults to false. 
+   * @param {Boolean} asynchronous If this is set to true, we will queue checks for processing and return a response immediately. You can configure webhooks to notify you when the report is complete. Write-only. Defaults to false. 
    */
-  exports.prototype.setAsync = function(async) {
-    this['async'] = async;
+  exports.prototype.setAsynchronous = function(asynchronous) {
+    this['asynchronous'] = asynchronous;
   }
 
 

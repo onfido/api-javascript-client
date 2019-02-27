@@ -35,7 +35,7 @@
   /**
    * The LiveVideo model module.
    * @module model/LiveVideo
-   * @version 2.1.0
+   * @version 3.0.0
    */
 
   /**
