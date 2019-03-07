@@ -35,7 +35,7 @@
   /**
    * The IdNumber model module.
    * @module model/IdNumber
-   * @version 3.0.0
+   * @version 3.1.0
    */
 
   /**

@@ -16,31 +16,31 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Webhook'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Webhook'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.WebhooksList = factory(root.Onfido.ApiClient, root.Onfido.Webhook);
+    root.Onfido.SdkTokenResponse = factory(root.Onfido.ApiClient);
   }
-}(this, function(ApiClient, Webhook) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
   /**
-   * The WebhooksList model module.
-   * @module model/WebhooksList
+   * The SdkTokenResponse model module.
+   * @module model/SdkTokenResponse
    * @version 3.1.0
    */
 
   /**
-   * Constructs a new <code>WebhooksList</code>.
-   * @alias module:model/WebhooksList
+   * Constructs a new <code>SdkTokenResponse</code>.
+   * @alias module:model/SdkTokenResponse
    * @class
    */
   var exports = function() {
@@ -49,40 +49,43 @@
   };
 
   /**
-   * Constructs a <code>WebhooksList</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>SdkTokenResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/WebhooksList} obj Optional instance to populate.
-   * @return {module:model/WebhooksList} The populated <code>WebhooksList</code> instance.
+   * @param {module:model/SdkTokenResponse} obj Optional instance to populate.
+   * @return {module:model/SdkTokenResponse} The populated <code>SdkTokenResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
-      if (data.hasOwnProperty('webhooks')) {
-        obj['webhooks'] = ApiClient.convertToType(data['webhooks'], [Webhook]);
+      if (data.hasOwnProperty('token')) {
+        obj['token'] = ApiClient.convertToType(data['token'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {Array.<module:model/Webhook>} webhooks
+   * The generated SDK token
+   * @member {String} token
    */
-  exports.prototype['webhooks'] = undefined;
+  exports.prototype['token'] = undefined;
 
 
   /**
-   * @return {Array.<module:model/Webhook>}
+   * Returns The generated SDK token
+   * @return {String}
    */
-  exports.prototype.getWebhooks = function() {
-    return this['webhooks'];
+  exports.prototype.getToken = function() {
+    return this['token'];
   }
 
   /**
-   * @param {Array.<module:model/Webhook>} webhooks
+   * Sets The generated SDK token
+   * @param {String} token The generated SDK token
    */
-  exports.prototype.setWebhooks = function(webhooks) {
-    this['webhooks'] = webhooks;
+  exports.prototype.setToken = function(token) {
+    this['token'] = token;
   }
 
 

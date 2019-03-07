@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Applicant', 'model/ApplicantsList', 'model/Check', 'model/CheckWithReportIds', 'model/ChecksList', 'model/Document', 'model/DocumentsList', 'model/Error', 'model/GenericAddressesList', 'model/LivePhoto', 'model/LivePhotosList', 'model/LiveVideo', 'model/LiveVideosList', 'model/Report', 'model/ReportTypeGroup', 'model/ReportTypeGroupsList', 'model/ReportsList', 'model/Webhook', 'model/WebhooksList'], factory);
+    define(['ApiClient', 'model/Applicant', 'model/ApplicantsList', 'model/Check', 'model/CheckWithReportIds', 'model/ChecksList', 'model/Document', 'model/DocumentsList', 'model/Error', 'model/GenericAddressesList', 'model/LivePhoto', 'model/LivePhotosList', 'model/LiveVideo', 'model/LiveVideosList', 'model/Report', 'model/ReportTypeGroup', 'model/ReportTypeGroupsList', 'model/ReportsList', 'model/SdkTokenRequest', 'model/SdkTokenResponse', 'model/Webhook', 'model/WebhooksList'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Applicant'), require('../model/ApplicantsList'), require('../model/Check'), require('../model/CheckWithReportIds'), require('../model/ChecksList'), require('../model/Document'), require('../model/DocumentsList'), require('../model/Error'), require('../model/GenericAddressesList'), require('../model/LivePhoto'), require('../model/LivePhotosList'), require('../model/LiveVideo'), require('../model/LiveVideosList'), require('../model/Report'), require('../model/ReportTypeGroup'), require('../model/ReportTypeGroupsList'), require('../model/ReportsList'), require('../model/Webhook'), require('../model/WebhooksList'));
+    module.exports = factory(require('../ApiClient'), require('../model/Applicant'), require('../model/ApplicantsList'), require('../model/Check'), require('../model/CheckWithReportIds'), require('../model/ChecksList'), require('../model/Document'), require('../model/DocumentsList'), require('../model/Error'), require('../model/GenericAddressesList'), require('../model/LivePhoto'), require('../model/LivePhotosList'), require('../model/LiveVideo'), require('../model/LiveVideosList'), require('../model/Report'), require('../model/ReportTypeGroup'), require('../model/ReportTypeGroupsList'), require('../model/ReportsList'), require('../model/SdkTokenRequest'), require('../model/SdkTokenResponse'), require('../model/Webhook'), require('../model/WebhooksList'));
   } else {
     // Browser globals (root is window)
     if (!root.Onfido) {
       root.Onfido = {};
     }
-    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Applicant, root.Onfido.ApplicantsList, root.Onfido.Check, root.Onfido.CheckWithReportIds, root.Onfido.ChecksList, root.Onfido.Document, root.Onfido.DocumentsList, root.Onfido.Error, root.Onfido.GenericAddressesList, root.Onfido.LivePhoto, root.Onfido.LivePhotosList, root.Onfido.LiveVideo, root.Onfido.LiveVideosList, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.Webhook, root.Onfido.WebhooksList);
+    root.Onfido.DefaultApi = factory(root.Onfido.ApiClient, root.Onfido.Applicant, root.Onfido.ApplicantsList, root.Onfido.Check, root.Onfido.CheckWithReportIds, root.Onfido.ChecksList, root.Onfido.Document, root.Onfido.DocumentsList, root.Onfido.Error, root.Onfido.GenericAddressesList, root.Onfido.LivePhoto, root.Onfido.LivePhotosList, root.Onfido.LiveVideo, root.Onfido.LiveVideosList, root.Onfido.Report, root.Onfido.ReportTypeGroup, root.Onfido.ReportTypeGroupsList, root.Onfido.ReportsList, root.Onfido.SdkTokenRequest, root.Onfido.SdkTokenResponse, root.Onfido.Webhook, root.Onfido.WebhooksList);
   }
-}(this, function(ApiClient, Applicant, ApplicantsList, Check, CheckWithReportIds, ChecksList, Document, DocumentsList, Error, GenericAddressesList, LivePhoto, LivePhotosList, LiveVideo, LiveVideosList, Report, ReportTypeGroup, ReportTypeGroupsList, ReportsList, Webhook, WebhooksList) {
+}(this, function(ApiClient, Applicant, ApplicantsList, Check, CheckWithReportIds, ChecksList, Document, DocumentsList, Error, GenericAddressesList, LivePhoto, LivePhotosList, LiveVideo, LiveVideosList, Report, ReportTypeGroup, ReportTypeGroupsList, ReportsList, SdkTokenRequest, SdkTokenResponse, Webhook, WebhooksList) {
   'use strict';
 
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 3.0.0
+   * @version 3.1.0
    */
 
   /**
@@ -958,6 +958,56 @@
      */
     this.findWebhook = function(webhook_id) {
       return this.findWebhookWithHttpInfo(webhook_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Generate a SDK token
+     * @param {module:model/SdkTokenRequest} SdkTokenRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SdkTokenResponse} and HTTP response
+     */
+    this.generateSdkTokenWithHttpInfo = function(SdkTokenRequest) {
+      var postBody = SdkTokenRequest;
+
+      // verify the required parameter 'SdkTokenRequest' is set
+      if (SdkTokenRequest === undefined || SdkTokenRequest === null) {
+        throw new Error("Missing the required parameter 'SdkTokenRequest' when calling generateSdkToken");
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = SdkTokenResponse;
+
+      return this.apiClient.callApi(
+        '/sdk_token', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Generate a SDK token
+     * @param {module:model/SdkTokenRequest} SdkTokenRequest 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SdkTokenResponse}
+     */
+    this.generateSdkToken = function(SdkTokenRequest) {
+      return this.generateSdkTokenWithHttpInfo(SdkTokenRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

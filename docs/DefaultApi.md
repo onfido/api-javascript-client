@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**findReport**](DefaultApi.md#findReport) | **GET** /checks/{check_id}/reports/{report_id} | A single report can be retrieved using this endpoint with the corresponding unique identifier.
 [**findReportTypeGroup**](DefaultApi.md#findReportTypeGroup) | **GET** /report_type_groups/{report_type_group_id} | Retrieve single report type group object
 [**findWebhook**](DefaultApi.md#findWebhook) | **GET** /webhooks/{webhook_id} | Retrieve a Webhook
+[**generateSdkToken**](DefaultApi.md#generateSdkToken) | **POST** /sdk_token | Generate a SDK token
 [**listApplicants**](DefaultApi.md#listApplicants) | **GET** /applicants | List Applicants
 [**listChecks**](DefaultApi.md#listChecks) | **GET** /applicants/{applicant_id}/checks | Retrieve Checks
 [**listDocuments**](DefaultApi.md#listDocuments) | **GET** /applicants/{applicant_id}/documents | List documents
@@ -799,6 +800,50 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="generateSdkToken"></a>
+# **generateSdkToken**
+> SdkTokenResponse generateSdkToken(SdkTokenRequest)
+
+Generate a SDK token
+
+### Example
+```javascript
+var Onfido = require('onfido');
+var defaultClient = Onfido.ApiClient.instance;
+// Configure API key authorization: Token
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
+
+var apiInstance = new Onfido.DefaultApi();
+var SdkTokenRequest = new Onfido.SdkTokenRequest(); // SdkTokenRequest | 
+apiInstance.generateSdkToken(SdkTokenRequest).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **SdkTokenRequest** | [**SdkTokenRequest**](SdkTokenRequest.md)|  | 
+
+### Return type
+
+[**SdkTokenResponse**](SdkTokenResponse.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="listApplicants"></a>

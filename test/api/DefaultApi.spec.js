@@ -220,6 +220,16 @@
         done();
       });
     });
+    describe('generateSdkToken', function() {
+      it('should call generateSdkToken successfully', function(done) {
+        //uncomment below and update the code to test generateSdkToken
+        //instance.generateSdkToken(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listApplicants', function() {
       it('should call listApplicants successfully', function(done) {
         //uncomment below and update the code to test listApplicants
