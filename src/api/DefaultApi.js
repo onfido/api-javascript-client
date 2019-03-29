@@ -33,7 +33,7 @@
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 3.1.0
+   * @version 4.0.0
    */
 
   /**
@@ -1650,6 +1650,7 @@
      * @param {File} file The file to be uploaded.
      * @param {Object} opts Optional parameters
      * @param {String} opts.side Either the &#x60;front&#x60; or &#x60;back&#x60; of the document.
+     * @param {String} opts.issuing_country The issuing country of the document, a 3-letter ISO code.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Document} and HTTP response
      */
     this.uploadDocumentWithHttpInfo = function(applicant_id, type, file, opts) {
@@ -1683,8 +1684,9 @@
       };
       var formParams = {
         'type': type,
+        'file': file,
         'side': opts['side'],
-        'file': file
+        'issuing_country': opts['issuing_country']
       };
 
       var authNames = ['Token'];
@@ -1707,6 +1709,7 @@
      * @param {File} file The file to be uploaded.
      * @param {Object} opts Optional parameters
      * @param {String} opts.side Either the &#x60;front&#x60; or &#x60;back&#x60; of the document.
+     * @param {String} opts.issuing_country The issuing country of the document, a 3-letter ISO code.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Document}
      */
     this.uploadDocument = function(applicant_id, type, file, opts) {

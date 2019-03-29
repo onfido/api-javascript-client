@@ -35,7 +35,7 @@
   /**
    * The ReportOption model module.
    * @module model/ReportOption
-   * @version 3.1.0
+   * @version 4.0.0
    */
 
   /**

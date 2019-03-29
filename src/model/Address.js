@@ -35,7 +35,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 3.1.0
+   * @version 4.0.0
    */
 
   /**

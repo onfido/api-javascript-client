@@ -35,7 +35,7 @@
   /**
    * The DocumentsList model module.
    * @module model/DocumentsList
-   * @version 3.1.0
+   * @version 4.0.0
    */
 
   /**

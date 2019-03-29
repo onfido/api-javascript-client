@@ -35,7 +35,7 @@
   /**
    * The Document model module.
    * @module model/Document
-   * @version 3.1.0
+   * @version 4.0.0
    */
 
   /**
@@ -78,6 +78,9 @@
       }
       if (data.hasOwnProperty('side')) {
         obj['side'] = ApiClient.convertToType(data['side'], 'String');
+      }
+      if (data.hasOwnProperty('issuing_country')) {
+        obj['issuing_country'] = ApiClient.convertToType(data['issuing_country'], 'String');
       }
       if (data.hasOwnProperty('href')) {
         obj['href'] = ApiClient.convertToType(data['href'], 'String');
@@ -124,6 +127,11 @@
    * @member {String} side
    */
   exports.prototype['side'] = undefined;
+  /**
+   * The issuing country of the document, a 3-letter ISO code.
+   * @member {String} issuing_country
+   */
+  exports.prototype['issuing_country'] = undefined;
   /**
    * The uri of this resource
    * @member {String} href
@@ -252,6 +260,23 @@
    */
   exports.prototype.setSide = function(side) {
     this['side'] = side;
+  }
+
+
+  /**
+   * Returns The issuing country of the document, a 3-letter ISO code.
+   * @return {String}
+   */
+  exports.prototype.getIssuingCountry = function() {
+    return this['issuing_country'];
+  }
+
+  /**
+   * Sets The issuing country of the document, a 3-letter ISO code.
+   * @param {String} issuing_country The issuing country of the document, a 3-letter ISO code.
+   */
+  exports.prototype.setIssuingCountry = function(issuing_country) {
+    this['issuing_country'] = issuing_country;
   }
 
 

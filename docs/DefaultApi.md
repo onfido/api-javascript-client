@@ -1408,7 +1408,8 @@ var applicant_id = "applicant_id_example"; // String |
 var type = "type_example"; // String | The type of document.
 var file = "/path/to/file"; // File | The file to be uploaded.
 var opts = {
-  'side': "side_example" // String | Either the `front` or `back` of the document.
+  'side': "side_example", // String | Either the `front` or `back` of the document.
+  'issuing_country': "issuing_country_example" // String | The issuing country of the document, a 3-letter ISO code.
 };
 apiInstance.uploadDocument(applicant_id, type, file, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -1426,6 +1427,7 @@ Name | Type | Description  | Notes
  **type** | **String**| The type of document. | 
  **file** | **File**| The file to be uploaded. | 
  **side** | **String**| Either the &#x60;front&#x60; or &#x60;back&#x60; of the document. | [optional] 
+ **issuing_country** | **String**| The issuing country of the document, a 3-letter ISO code. | [optional] 
 
 ### Return type
 

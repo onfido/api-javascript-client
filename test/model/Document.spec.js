@@ -98,6 +98,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property issuing_country (base name: "issuing_country")', function() {
+      // uncomment below and update the code to test the property issuing_country
+      //var instance = new Onfido.Document();
+      //expect(instance).to.be();
+    });
+
     it('should have the property href (base name: "href")', function() {
       // uncomment below and update the code to test the property href
       //var instance = new Onfido.Document();
