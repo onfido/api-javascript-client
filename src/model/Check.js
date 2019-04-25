@@ -35,7 +35,7 @@
   /**
    * The Check model module.
    * @module model/Check
-   * @version 4.0.0
+   * @version 4.0.1
    */
 
   /**
