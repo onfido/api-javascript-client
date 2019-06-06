@@ -35,7 +35,7 @@
   /**
    * The LivePhoto model module.
    * @module model/LivePhoto
-   * @version 4.0.1
+   * @version 4.1.0
    */
 
   /**

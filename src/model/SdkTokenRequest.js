@@ -35,7 +35,7 @@
   /**
    * The SdkTokenRequest model module.
    * @module model/SdkTokenRequest
-   * @version 4.0.1
+   * @version 4.1.0
    */
 
   /**

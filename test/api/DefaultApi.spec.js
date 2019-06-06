@@ -90,6 +90,16 @@
         done();
       });
     });
+    describe('deleteWebhook', function() {
+      it('should call deleteWebhook successfully', function(done) {
+        //uncomment below and update the code to test deleteWebhook
+        //instance.deleteWebhook(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('destroyApplicant', function() {
       it('should call destroyApplicant successfully', function(done) {
         //uncomment below and update the code to test destroyApplicant
@@ -124,6 +134,16 @@
       it('should call downloadLiveVideo successfully', function(done) {
         //uncomment below and update the code to test downloadLiveVideo
         //instance.downloadLiveVideo(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('editWebhook', function() {
+      it('should call editWebhook successfully', function(done) {
+        //uncomment below and update the code to test editWebhook
+        //instance.editWebhook(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

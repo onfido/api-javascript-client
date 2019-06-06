@@ -35,7 +35,7 @@
   /**
    * The ApplicantsList model module.
    * @module model/ApplicantsList
-   * @version 4.0.1
+   * @version 4.1.0
    */
 
   /**

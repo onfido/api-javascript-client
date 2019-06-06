@@ -33,7 +33,7 @@
   /**
    * Default service.
    * @module api/DefaultApi
-   * @version 4.0.1
+   * @version 4.1.0
    */
 
   /**
@@ -266,6 +266,57 @@
 
 
     /**
+     * Delete a webhook
+     * @param {String} webhook_id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    this.deleteWebhookWithHttpInfo = function(webhook_id) {
+      var postBody = null;
+
+      // verify the required parameter 'webhook_id' is set
+      if (webhook_id === undefined || webhook_id === null) {
+        throw new Error("Missing the required parameter 'webhook_id' when calling deleteWebhook");
+      }
+
+
+      var pathParams = {
+        'webhook_id': webhook_id
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/webhooks/{webhook_id}', 'DELETE',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Delete a webhook
+     * @param {String} webhook_id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    this.deleteWebhook = function(webhook_id) {
+      return this.deleteWebhookWithHttpInfo(webhook_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Delete Applicant
      * @param {String} applicant_id 
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
@@ -475,6 +526,64 @@
      */
     this.downloadLiveVideo = function(live_video_id) {
       return this.downloadLiveVideoWithHttpInfo(live_video_id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Edit a webhook
+     * @param {String} webhook_id 
+     * @param {module:model/Webhook} Webhook 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Webhook} and HTTP response
+     */
+    this.editWebhookWithHttpInfo = function(webhook_id, Webhook) {
+      var postBody = Webhook;
+
+      // verify the required parameter 'webhook_id' is set
+      if (webhook_id === undefined || webhook_id === null) {
+        throw new Error("Missing the required parameter 'webhook_id' when calling editWebhook");
+      }
+
+      // verify the required parameter 'Webhook' is set
+      if (Webhook === undefined || Webhook === null) {
+        throw new Error("Missing the required parameter 'Webhook' when calling editWebhook");
+      }
+
+
+      var pathParams = {
+        'webhook_id': webhook_id
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Token'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = Webhook;
+
+      return this.apiClient.callApi(
+        '/webhooks/{webhook_id}', 'PUT',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Edit a webhook
+     * @param {String} webhook_id 
+     * @param {module:model/Webhook} Webhook 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Webhook}
+     */
+    this.editWebhook = function(webhook_id, Webhook) {
+      return this.editWebhookWithHttpInfo(webhook_id, Webhook)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

@@ -8,10 +8,12 @@ Method | HTTP request | Description
 [**createApplicant**](DefaultApi.md#createApplicant) | **POST** /applicants | Create Applicant
 [**createCheck**](DefaultApi.md#createCheck) | **POST** /applicants/{applicant_id}/checks | Create a check
 [**createWebhook**](DefaultApi.md#createWebhook) | **POST** /webhooks | Create a webhook
+[**deleteWebhook**](DefaultApi.md#deleteWebhook) | **DELETE** /webhooks/{webhook_id} | Delete a webhook
 [**destroyApplicant**](DefaultApi.md#destroyApplicant) | **DELETE** /applicants/{applicant_id} | Delete Applicant
 [**downloadDocument**](DefaultApi.md#downloadDocument) | **GET** /applicants/{applicant_id}/documents/{document_id}/download | Download a documents raw data
 [**downloadLivePhoto**](DefaultApi.md#downloadLivePhoto) | **GET** /live_photos/{live_photo_id}/download | Download live photo
 [**downloadLiveVideo**](DefaultApi.md#downloadLiveVideo) | **GET** /live_videos/{live_video_id}/download | Download live video
+[**editWebhook**](DefaultApi.md#editWebhook) | **PUT** /webhooks/{webhook_id} | Edit a webhook
 [**findAddresses**](DefaultApi.md#findAddresses) | **GET** /addresses/pick | Search for addresses by postcode
 [**findApplicant**](DefaultApi.md#findApplicant) | **GET** /applicants/{applicant_id} | Retrieve Applicant
 [**findCheck**](DefaultApi.md#findCheck) | **GET** /applicants/{applicant_id}/checks/{check_id} | Retrieve a Check
@@ -218,6 +220,50 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="deleteWebhook"></a>
+# **deleteWebhook**
+> deleteWebhook(webhook_id)
+
+Delete a webhook
+
+### Example
+```javascript
+var Onfido = require('onfido');
+var defaultClient = Onfido.ApiClient.instance;
+// Configure API key authorization: Token
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
+
+var apiInstance = new Onfido.DefaultApi();
+var webhook_id = "webhook_id_example"; // String | 
+apiInstance.deleteWebhook(webhook_id).then(function() {
+  console.log('API called successfully.');
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhook_id** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="destroyApplicant"></a>
 # **destroyApplicant**
 > destroyApplicant(applicant_id)
@@ -399,6 +445,52 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*, application/json
+
+<a name="editWebhook"></a>
+# **editWebhook**
+> Webhook editWebhook(webhook_id, Webhook)
+
+Edit a webhook
+
+### Example
+```javascript
+var Onfido = require('onfido');
+var defaultClient = Onfido.ApiClient.instance;
+// Configure API key authorization: Token
+const token_auth = defaultClient.authentications['Token'];
+token_auth.apiKey = 'token=' + 'YOUR API KEY';
+token_auth.apiKeyPrefix = 'Token';
+
+var apiInstance = new Onfido.DefaultApi();
+var webhook_id = "webhook_id_example"; // String | 
+var Webhook = new Onfido.Webhook(); // Webhook | 
+apiInstance.editWebhook(webhook_id, Webhook).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhook_id** | **String**|  | 
+ **Webhook** | [**Webhook**](Webhook.md)|  | 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="findAddresses"></a>
 # **findAddresses**

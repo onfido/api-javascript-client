@@ -35,7 +35,7 @@
   /**
    * The GenericAddress model module.
    * @module model/GenericAddress
-   * @version 4.0.1
+   * @version 4.1.0
    */
 
   /**
