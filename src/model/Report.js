@@ -35,7 +35,7 @@
   /**
    * The Report model module.
    * @module model/Report
-   * @version 4.1.0
+   * @version 4.2.0
    */
 
   /**

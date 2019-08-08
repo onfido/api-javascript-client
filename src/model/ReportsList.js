@@ -35,7 +35,7 @@
   /**
    * The ReportsList model module.
    * @module model/ReportsList
-   * @version 4.1.0
+   * @version 4.2.0
    */
 
   /**

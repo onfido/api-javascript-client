@@ -35,7 +35,7 @@
   /**
    * The SdkTokenRequest model module.
    * @module model/SdkTokenRequest
-   * @version 4.1.0
+   * @version 4.2.0
    */
 
   /**
@@ -43,13 +43,11 @@
    * @alias module:model/SdkTokenRequest
    * @class
    * @param applicant_id {String} The unique identifier of the applicant
-   * @param referrer {String} The referrer URL pattern
    */
-  var exports = function(applicant_id, referrer) {
+  var exports = function(applicant_id) {
     var _this = this;
 
     _this['applicant_id'] = applicant_id;
-    _this['referrer'] = referrer;
   };
 
   /**
@@ -68,6 +66,9 @@
       if (data.hasOwnProperty('referrer')) {
         obj['referrer'] = ApiClient.convertToType(data['referrer'], 'String');
       }
+      if (data.hasOwnProperty('application_id')) {
+        obj['application_id'] = ApiClient.convertToType(data['application_id'], 'String');
+      }
     }
     return obj;
   }
@@ -82,6 +83,11 @@
    * @member {String} referrer
    */
   exports.prototype['referrer'] = undefined;
+  /**
+   * The application ID (iOS or Android)
+   * @member {String} application_id
+   */
+  exports.prototype['application_id'] = undefined;
 
 
   /**
@@ -115,6 +121,23 @@
    */
   exports.prototype.setReferrer = function(referrer) {
     this['referrer'] = referrer;
+  }
+
+
+  /**
+   * Returns The application ID (iOS or Android)
+   * @return {String}
+   */
+  exports.prototype.getApplicationId = function() {
+    return this['application_id'];
+  }
+
+  /**
+   * Sets The application ID (iOS or Android)
+   * @param {String} application_id The application ID (iOS or Android)
+   */
+  exports.prototype.setApplicationId = function(application_id) {
+    this['application_id'] = application_id;
   }
 
 

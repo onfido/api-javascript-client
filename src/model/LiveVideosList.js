@@ -35,7 +35,7 @@
   /**
    * The LiveVideosList model module.
    * @module model/LiveVideosList
-   * @version 4.1.0
+   * @version 4.2.0
    */
 
   /**

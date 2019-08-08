@@ -68,6 +68,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property application_id (base name: "application_id")', function() {
+      // uncomment below and update the code to test the property application_id
+      //var instance = new Onfido.SdkTokenRequest();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
