@@ -35,7 +35,7 @@
   /**
    * The WebhooksList model module.
    * @module model/WebhooksList
-   * @version 4.2.0
+   * @version 4.3.0
    */
 
   /**

@@ -122,6 +122,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property line1 (base name: "line1")', function() {
+      // uncomment below and update the code to test the property line1
+      //var instance = new Onfido.Address();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property line2 (base name: "line2")', function() {
+      // uncomment below and update the code to test the property line2
+      //var instance = new Onfido.Address();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property line3 (base name: "line3")', function() {
+      // uncomment below and update the code to test the property line3
+      //var instance = new Onfido.Address();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -35,7 +35,7 @@
   /**
    * The Address model module.
    * @module model/Address
-   * @version 4.2.0
+   * @version 4.3.0
    */
 
   /**
@@ -93,6 +93,15 @@
       }
       if (data.hasOwnProperty('state')) {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
+      }
+      if (data.hasOwnProperty('line1')) {
+        obj['line1'] = ApiClient.convertToType(data['line1'], 'String');
+      }
+      if (data.hasOwnProperty('line2')) {
+        obj['line2'] = ApiClient.convertToType(data['line2'], 'String');
+      }
+      if (data.hasOwnProperty('line3')) {
+        obj['line3'] = ApiClient.convertToType(data['line3'], 'String');
       }
     }
     return obj;
@@ -153,6 +162,21 @@
    * @member {String} state
    */
   exports.prototype['state'] = undefined;
+  /**
+   * Line 1 of the applicant's address
+   * @member {String} line1
+   */
+  exports.prototype['line1'] = undefined;
+  /**
+   * Line 2 of the applicant's address
+   * @member {String} line2
+   */
+  exports.prototype['line2'] = undefined;
+  /**
+   * Line 3 of the applicant's address
+   * @member {String} line3
+   */
+  exports.prototype['line3'] = undefined;
 
   // Implement GenericAddress interface:
   /**
@@ -388,6 +412,57 @@ exports.prototype['country'] = undefined;
    */
   exports.prototype.setState = function(state) {
     this['state'] = state;
+  }
+
+
+  /**
+   * Returns Line 1 of the applicant's address
+   * @return {String}
+   */
+  exports.prototype.getLine1 = function() {
+    return this['line1'];
+  }
+
+  /**
+   * Sets Line 1 of the applicant's address
+   * @param {String} line1 Line 1 of the applicant's address
+   */
+  exports.prototype.setLine1 = function(line1) {
+    this['line1'] = line1;
+  }
+
+
+  /**
+   * Returns Line 2 of the applicant's address
+   * @return {String}
+   */
+  exports.prototype.getLine2 = function() {
+    return this['line2'];
+  }
+
+  /**
+   * Sets Line 2 of the applicant's address
+   * @param {String} line2 Line 2 of the applicant's address
+   */
+  exports.prototype.setLine2 = function(line2) {
+    this['line2'] = line2;
+  }
+
+
+  /**
+   * Returns Line 3 of the applicant's address
+   * @return {String}
+   */
+  exports.prototype.getLine3 = function() {
+    return this['line3'];
+  }
+
+  /**
+   * Sets Line 3 of the applicant's address
+   * @param {String} line3 Line 3 of the applicant's address
+   */
+  exports.prototype.setLine3 = function(line3) {
+    this['line3'] = line3;
   }
 
 
