@@ -1,3 +1,7 @@
+# :warning: Please use [onfido-node](https://github.com/onfido/onfido-node) instead :warning:
+
+This library has been superseded by [onfido-node](https://github.com/onfido/onfido-node)
+
 # onfido
 
 Onfido - JavaScript client for onfido
